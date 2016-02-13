@@ -1,11 +1,11 @@
 ﻿namespace VetSystem.Data.Common.Models
 {
-	using System;
+    using System;
 
-	public interface IAuditInfo
-	{
-		DateTime CreatedOn { get; set; }
+    public interface IAuditInfo
+    {
+        DateTime CreatedOn { get; set; }
 
-		DateTime? ModifiedOn { get; set; }
-	}
+        DateTime? ModifiedOn { get; set; }
+    }
 }

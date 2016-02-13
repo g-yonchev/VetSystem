@@ -1,9 +1,9 @@
 ﻿namespace VetSystem.Web.Infrastructure.Mapping
 {
-	using AutoMapper;
+    using AutoMapper;
 
-	public interface IHaveCustomMappings
-	{
-		void CreateMappings(IMapperConfiguration configuration);
-	}
+    public interface IHaveCustomMappings
+    {
+        void CreateMappings(IMapperConfiguration configuration);
+    }
 }
