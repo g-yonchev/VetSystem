@@ -13,7 +13,7 @@
 
 		public virtual User Owner { get; set; }
 
-		public int ClinicId { get; set; }
+		public int? ClinicId { get; set; }
 
 		public virtual Clinic Clinic { get; set; }
 	}

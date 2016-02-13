@@ -1,6 +1,5 @@
 ﻿namespace VetSystem.Data.Common.Repositories
 {
-    using System;
     using System.Linq;
 
     using VetSystem.Data.Common.Models;

@@ -20,6 +20,11 @@ namespace VetSystem.Data.Migrations
 
 		protected override void Seed(VetSystemDbContext context)
 		{
+			if (context.Roles.Any())
+			{
+				return;
+			}
+
 			// Roles
 			context.Roles.Add(new IdentityRole { Name = "Administrator" });
 			context.Roles.Add(new IdentityRole { Name = "ClinicOwner" });

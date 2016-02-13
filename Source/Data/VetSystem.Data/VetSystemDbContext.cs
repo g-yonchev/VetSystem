@@ -28,7 +28,20 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            return base.SaveChanges();
+			try
+			{
+				return base.SaveChanges();
+
+			}
+			catch (Exception ex)
+			{
+				var a = (ex as System.Data.Entity.Validation.DbEntityValidationException)
+  .EntityValidationErrors
+  .ToList()[0]
+  .ValidationErrors
+  .ToList()[0];
+				throw;
+			}
         }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
