@@ -5,7 +5,6 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using VetSystem.Web.Models;
 using VetSystem.Data;
 using VetSystem.Data.Models;
 

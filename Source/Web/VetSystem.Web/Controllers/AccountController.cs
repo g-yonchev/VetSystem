@@ -8,8 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using VetSystem.Web.Models;
 using VetSystem.Data.Models;
+using VetSystem.Web.ViewModels.Account;
 
 namespace VetSystem.Web.Controllers
 {

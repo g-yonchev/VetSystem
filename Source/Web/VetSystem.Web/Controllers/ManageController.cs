@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using VetSystem.Web.Models;
+using VetSystem.Web.ViewModels.Manage;
 
 namespace VetSystem.Web.Controllers
 {
