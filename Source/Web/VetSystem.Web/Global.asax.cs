@@ -13,6 +13,7 @@
     {
         protected void Application_Start()
         {
+			DatabaseConfig.Initialize();
             AutofacConfig.RegisterAutofac();
             ViewEnginesConfig.RegisterViewEngines(ViewEngines.Engines);
 
