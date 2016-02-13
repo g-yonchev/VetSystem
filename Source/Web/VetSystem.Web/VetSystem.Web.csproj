@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
       <Private>True</Private>
@@ -212,6 +220,7 @@
   <ItemGroup>
     <Compile Include="App_Start\ApplicationSignInManager.cs" />
     <Compile Include="App_Start\ApplicationUserManager.cs" />
+    <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\EmailService.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -316,6 +325,10 @@
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\VetSystem.Data.Common\VetSystem.Data.Common.csproj">
+      <Project>{7104a53a-459c-4d23-824e-ec163bd2c1d1}</Project>
+      <Name>VetSystem.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\VetSystem.Data.Models\VetSystem.Data.Models.csproj">
       <Project>{a1e1b971-f57e-43e1-bded-bcf58d76eeef}</Project>
       <Name>VetSystem.Data.Models</Name>

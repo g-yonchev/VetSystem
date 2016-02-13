@@ -11,7 +11,8 @@
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+			AutofacConfig.RegisterAutofac();
+			AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
