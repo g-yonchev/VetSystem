@@ -57,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201602131720307_InitialCreate.cs" />
+    <Compile Include="Migrations\201602131720307_InitialCreate.Designer.cs">
+      <DependentUpon>201602131720307_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VetSystemDbContext.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
@@ -80,6 +85,11 @@
       <Project>{a1e1b971-f57e-43e1-bded-bcf58d76eeef}</Project>
       <Name>VetSystem.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602131720307_InitialCreate.resx">
+      <DependentUpon>201602131720307_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
