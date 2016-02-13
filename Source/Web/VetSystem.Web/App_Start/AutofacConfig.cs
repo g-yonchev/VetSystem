@@ -1,16 +1,18 @@
 ﻿namespace VetSystem.Web
 {
-    using System.Data.Entity;
-    using System.Reflection;
-    using System.Web.Mvc;
+	using System.Data.Entity;
+	using System.Reflection;
+	using System.Web.Mvc;
 
-    using Autofac;
-    using Autofac.Integration.Mvc;
+	using Autofac;
+	using Autofac.Integration.Mvc;
 
-    using VetSystem.Data;
-    using VetSystem.Data.Common.Repositories;
+	using VetSystem.Data;
+	using VetSystem.Data.Common.Repositories;
+	using VetSystem.Services.Web;
+	using VetSystem.Web.Controllers;
 
-    public static class AutofacConfig
+	public static class AutofacConfig
     {
         public static void RegisterAutofac()
         {
@@ -49,6 +51,13 @@
             builder.RegisterGeneric(typeof(DbRepository<>))
                 .As(typeof(IDbRepository<>))
                 .InstancePerRequest();
-        }
+
+			builder.Register(x => new HttpCacheService())
+				.As<ICacheService>()
+				.InstancePerRequest();
+
+			builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+				.AssignableTo<BaseController>().PropertiesAutowired();
+		}
     }
 }
