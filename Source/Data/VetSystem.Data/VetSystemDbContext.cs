@@ -1,19 +1,19 @@
 ﻿namespace VetSystem.Data
 {
-	using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
-	using VetSystem.Data.Models;
+    using Models;
 
-	public class VetSystemDbContext : IdentityDbContext<User>
-	{
-		public VetSystemDbContext()
-			: base("DefaultConnection", throwIfV1Schema: false)
-		{
-		}
+    public class VetSystemDbContext : IdentityDbContext<User>
+    {
+        public VetSystemDbContext()
+            : base("DefaultConnection", throwIfV1Schema: false)
+        {
+        }
 
-		public static VetSystemDbContext Create()
-		{
-			return new VetSystemDbContext();
-		}
-	}
+        public static VetSystemDbContext Create()
+        {
+            return new VetSystemDbContext();
+        }
+    }
 }

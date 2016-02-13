@@ -1,14 +1,14 @@
 ﻿namespace VetSystem.Web.ViewModels.Manage
 {
-	using System.Collections.Generic;
+    using System.Collections.Generic;
 
-	using Microsoft.AspNet.Identity;
-	using Microsoft.Owin.Security;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
 
-	public class ManageLoginsViewModel
-	{
-		public IList<UserLoginInfo> CurrentLogins { get; set; }
+    public class ManageLoginsViewModel
+    {
+        public IList<UserLoginInfo> CurrentLogins { get; set; }
 
-		public IList<AuthenticationDescription> OtherLogins { get; set; }
-	}
+        public IList<AuthenticationDescription> OtherLogins { get; set; }
+    }
 }

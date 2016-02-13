@@ -1,12 +1,12 @@
 ﻿namespace VetSystem.Web.ViewModels.Account
 {
-	using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations;
 
-	public class ForgotPasswordViewModel
-	{
-		[Required]
-		[EmailAddress]
-		[Display(Name = "Email")]
-		public string Email { get; set; }
-	}
+    public class ForgotPasswordViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+    }
 }
