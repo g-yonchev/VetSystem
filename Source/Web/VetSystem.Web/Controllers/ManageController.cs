@@ -12,8 +12,8 @@
     using VetSystem.Web.ViewModels.Manage;
 
     [Authorize]
-    public class ManageController : Controller
-    {
+    public class ManageController : BaseController
+	{
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
