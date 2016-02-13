@@ -1,4 +1,4 @@
-# ASP.NET MVS Project
+# ASP.NET MVC Project
 Vet System
 
 ## Build status
