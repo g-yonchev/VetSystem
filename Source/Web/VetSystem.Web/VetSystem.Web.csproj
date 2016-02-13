@@ -234,6 +234,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -337,6 +338,14 @@
     <ProjectReference Include="..\..\Data\VetSystem.Data\VetSystem.Data.csproj">
       <Project>{8c6e4f86-2e14-4166-ad86-f9dacdd8013d}</Project>
       <Name>VetSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VetSystem.Services.Data\VetSystem.Services.Data.csproj">
+      <Project>{5d35294e-0b2b-4291-91ae-0da419da10ed}</Project>
+      <Name>VetSystem.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\VetSystem.Services.Web\VetSystem.Services.Web.csproj">
+      <Project>{a8608ee3-2035-4de6-b8e6-d49534af8221}</Project>
+      <Name>VetSystem.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\VetSystem.Web.Infrastructure\VetSystem.Web.Infrastructure.csproj">
       <Project>{a2e0ff4a-920b-4d75-ab32-69355a7b25e3}</Project>

@@ -16,7 +16,11 @@
         {
         }
 
-        public static VetSystemDbContext Create()
+		public virtual IDbSet<Clinic> Clinics { get; set; }
+
+		public virtual IDbSet<Pet> Pets { get; set; }
+
+		public static VetSystemDbContext Create()
         {
             return new VetSystemDbContext();
         }
@@ -27,7 +31,16 @@
             return base.SaveChanges();
         }
 
-        private void ApplyAuditInfoRules()
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<User>().HasMany(u => u.Pets).WithRequired(p => p.Owner).WillCascadeOnDelete(true);
+			modelBuilder.Entity<User>().HasMany(u => u.Companies).WithRequired(c => c.Owner).WillCascadeOnDelete(true);
+			modelBuilder.Entity<Clinic>().HasMany(c => c.Pets).WithRequired(p => p.Clinic).WillCascadeOnDelete(false);
+
+			base.OnModelCreating(modelBuilder);
+		}
+
+		private void ApplyAuditInfoRules()
         {
             // Approach via @julielerman: http://bit.ly/123661P
             foreach (var entry in
