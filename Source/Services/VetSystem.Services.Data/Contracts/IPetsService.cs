@@ -8,6 +8,8 @@
 	{
 		IQueryable<Pet> GetAll();
 
+		IQueryable<Pet> GetMine(string userId);
+
 		IQueryable<Pet> Get(int count);
 
 		Pet GetById(int id);

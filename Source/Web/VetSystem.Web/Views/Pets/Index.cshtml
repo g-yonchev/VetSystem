@@ -1,0 +1,13 @@
+﻿@model ICollection<VetSystem.Web.ViewModels.Pets.PetViewModel>
+
+<h2>My pets</h2>
+
+@foreach (var pet in Model)
+{
+	<div>
+		Name: @pet.Name
+	</div>
+	<div>
+		Clinic: @pet.ClinicName
+	</div>
+}

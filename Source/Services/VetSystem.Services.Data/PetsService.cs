@@ -1,5 +1,6 @@
 ﻿namespace VetSystem.Services.Data
 {
+	using System;
 	using System.Linq;
 
 	using VetSystem.Data.Common.Repositories;
@@ -54,6 +55,12 @@
 			this.pets.Save();
 
 			return pet;
+		}
+
+		public IQueryable<Pet> GetMine(string user)
+		{
+			var pets = this.pets.All().Where(x => x.Owner.Email == user);
+			return pets;
 		}
 	}
 }

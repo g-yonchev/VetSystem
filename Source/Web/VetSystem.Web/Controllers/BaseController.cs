@@ -6,7 +6,7 @@
 
 	using VetSystem.Services.Web;
 	using VetSystem.Web.Infrastructure.Mapping;
-
+	using Data.Models;
 	public abstract class BaseController : Controller
 	{
 		public ICacheService Cache { get; set; }
