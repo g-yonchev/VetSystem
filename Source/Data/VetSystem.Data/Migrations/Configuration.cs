@@ -162,19 +162,50 @@ namespace VetSystem.Data.Migrations
 
 			context.SaveChanges();
 
+			// Species
+			var species = new List<PetSpecies>
+			{
+				new PetSpecies() { Name = "Dog" },
+				new PetSpecies() { Name = "Cat" },
+				new PetSpecies() { Name = "Fish" },
+				new PetSpecies() { Name = "Bird" },
+				new PetSpecies() { Name = "Rabbit" },
+				new PetSpecies() { Name = "Hamster" },
+				new PetSpecies() { Name = "Mice" },
+				new PetSpecies() { Name = "Lizard" },
+				new PetSpecies() { Name = "Snake" },
+				new PetSpecies() { Name = "Other" },
+			};
+
+			context.Species.AddOrUpdate(species.ToArray());
+			context.SaveChanges();
+
 			// Pets
 			var clinics = context.Clinics.ToList();
 			for (int i = 1; i <= 30; i++)
 			{
 				var clinic = clinics[i % clinics.Count()];
 				var owner = users[i % users.Count()];
+				var petSpecies = species[i % species.Count()];
 
 				var pet = new Pet
 				{
 					Name = $"Pet {i}",
+					Age = i,
+					Weight = i + 10.3,
 					Clinic = clinic,
+					Species = petSpecies,
 					Owner = owner
 				};
+
+				if (i % 3 == 0)
+				{
+					pet.Gender = PetGender.Male;
+				}
+				else
+				{
+					pet.Gender = PetGender.Female;
+				}
 
 				context.Pets.Add(pet);
 			}

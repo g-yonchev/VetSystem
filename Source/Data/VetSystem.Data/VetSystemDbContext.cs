@@ -20,6 +20,8 @@
 
 		public virtual IDbSet<Pet> Pets { get; set; }
 
+		public virtual IDbSet<PetSpecies> Species { get; set; }
+
 		public static VetSystemDbContext Create()
         {
             return new VetSystemDbContext();
