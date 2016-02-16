@@ -240,9 +240,10 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\ClinicOwner\ClinicOwnerAreaRegistration.cs" />
     <Compile Include="Areas\ClinicOwner\Controllers\SchedulerController.cs" />
-    <Compile Include="Areas\Pets\Controllers\Class1.cs" />
     <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
+    <Compile Include="Areas\VetClinics\Controllers\ClinicsController.cs" />
     <Compile Include="Areas\VetClinics\VetClinicsAreaRegistration.cs" />
+    <Compile Include="Areas\VetClinics\ViewModels\ClinicViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -365,6 +366,8 @@
     <Content Include="Areas\ClinicOwner\Views\_ViewStart.cshtml" />
     <Content Include="Areas\VetClinics\Views\web.config" />
     <Content Include="Areas\Pets\Views\web.config" />
+    <Content Include="Areas\VetClinics\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\VetClinics\Views\Clinics\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -375,6 +378,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -410,7 +414,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Areas\Pets\Views\Index.cshtml" />
+    <Content Include="Areas\Pets\Views\Pets\Index.cshtml" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js.map" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Shared\_UserMenuPartial.cshtml" />
@@ -419,13 +423,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\ClinicOwner\Models\" />
+    <Folder Include="Areas\ClinicOwner\ViewModels\" />
     <Folder Include="Areas\ClinicOwner\Views\Shared\" />
     <Folder Include="Areas\Pets\Views\Shared\" />
-    <Folder Include="Areas\VetClinics\Controllers\" />
-    <Folder Include="Areas\VetClinics\Models\" />
     <Folder Include="Areas\VetClinics\Views\Shared\" />
     <Folder Include="ViewModels\Pets\" />
     <Folder Include="Views\Users\" />

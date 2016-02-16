@@ -1,0 +1,23 @@
+﻿@model ICollection<VetSystem.Web.Areas.VetClinics.ViewModels.ClinicViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var clinic in Model)
+{
+    <div>
+        Name: @clinic.Name
+    </div>
+    <div>
+        Owner: @clinic.OwnerName
+    </div>
+    <div>
+        Information: @clinic.Information
+    </div>
+    <div>
+        Pets: @clinic.PetsCount
+    </div>
+    <hr />
+}

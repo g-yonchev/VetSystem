@@ -20,7 +20,10 @@
         public ActionResult Index()
         {
 			var pets = this.pets
-				.GetMine(this.User.Identity.Name).To<PetViewModel>().ToList();
+				.GetMine(this.User.Identity.Name)
+                .To<PetViewModel>()
+                .ToList();
+
             return View(pets);
         }
     }
