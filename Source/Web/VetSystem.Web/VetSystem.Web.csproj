@@ -238,6 +238,8 @@
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\ClinicOwner\ClinicOwnerAreaRegistration.cs" />
+    <Compile Include="Areas\ClinicOwner\Controllers\SchedulerController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -247,6 +249,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\TaskViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
@@ -354,6 +357,9 @@
     <Content Include="Content\KendoUI\images\kendoui.woff" />
     <Content Include="Content\KendoUI\kendo.common.min.css.map" />
     <Content Include="Content\KendoUI\kendo.default.min.css.map" />
+    <Content Include="Areas\ClinicOwner\Views\web.config" />
+    <Content Include="Areas\ClinicOwner\Views\Scheduler\Index.cshtml" />
+    <Content Include="Areas\ClinicOwner\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -410,6 +416,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\ClinicOwner\Models\" />
+    <Folder Include="Areas\ClinicOwner\Views\Shared\" />
+    <Folder Include="Views\Scheduler\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>

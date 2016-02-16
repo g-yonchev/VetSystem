@@ -22,7 +22,9 @@
 
 		public virtual IDbSet<PetSpecies> Species { get; set; }
 
-		public static VetSystemDbContext Create()
+        public virtual IDbSet<Task> Tasks { get; set; }
+
+        public static VetSystemDbContext Create()
         {
             return new VetSystemDbContext();
         }
