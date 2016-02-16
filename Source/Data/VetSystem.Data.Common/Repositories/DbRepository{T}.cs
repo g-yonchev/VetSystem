@@ -7,7 +7,7 @@
     using VetSystem.Data.Common.Models;
 
     public class DbRepository<T> : IDbRepository<T>
-        where T : BaseModel<int>
+        where T : class, IAuditInfo, IDeletableEntity
     {
         public DbRepository(DbContext context)
         {
@@ -34,9 +34,15 @@
             return this.DbSet;
         }
 
-        public T GetById(int id)
+        public T GetById(object id)
         {
-            return this.All().FirstOrDefault(x => x.Id == id);
+            var item = this.DbSet.Find(id);
+            if (item.IsDeleted)
+            {
+                return null;
+            }
+
+            return item;
         }
 
         public void Add(T entity)
