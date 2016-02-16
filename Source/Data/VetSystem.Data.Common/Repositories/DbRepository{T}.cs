@@ -26,12 +26,12 @@
 
         public IQueryable<T> All()
         {
-            return this.DbSet.Where(x => !x.IsDeleted);
+            return this.DbSet.Where(x => !x.IsDeleted).AsQueryable();
         }
 
         public IQueryable<T> AllWithDeleted()
         {
-            return this.DbSet;
+            return this.DbSet.AsQueryable();
         }
 
         public T GetById(object id)
@@ -61,9 +61,25 @@
             this.DbSet.Remove(entity);
         }
 
-        public void Save()
+        public int Save()
         {
-            this.Context.SaveChanges();
+           return this.Context.SaveChanges();
+        }
+
+        public void Update(T entity)
+        {
+            var entry = this.Context.Entry(entity);
+            if (entry.State == EntityState.Detached)
+            {
+                this.DbSet.Attach(entity);
+            }
+
+            entry.State = EntityState.Modified;
+        }
+
+        public void Dispose()
+        {
+            this.Context.Dispose();
         }
     }
 }

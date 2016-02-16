@@ -17,8 +17,12 @@
 
         void Delete(T entity);
 
+        void Update(T entity);
+
         void HardDelete(T entity);
 
-        void Save();
+        void Dispose();
+
+        int Save();
     }
 }

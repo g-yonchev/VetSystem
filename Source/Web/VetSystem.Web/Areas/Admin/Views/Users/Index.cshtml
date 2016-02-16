@@ -1,4 +1,5 @@
 ﻿@using Kendo.Mvc.UI
+
 @(Html.Kendo().Grid<VetSystem.Data.Models.User>()
       .Name("grid")
       .Columns(columns =>
@@ -7,7 +8,7 @@
           columns.Bound(c => c.Email);
           columns.Bound(c => c.CreatedOn);
           columns.Bound(c => c.PhoneNumber);
-          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(480);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar =>
       {
@@ -19,14 +20,9 @@
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
       .Navigatable()
-      .Selectable(selectable =>
-      {
-          selectable.Mode(GridSelectionMode.Multiple);
-          selectable.Type(GridSelectionType.Row);
-      })
       .Sortable(sortable =>
       {
-          sortable.SortMode(GridSortMode.MultipleColumn);
+          sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable()
       .Scrollable()
