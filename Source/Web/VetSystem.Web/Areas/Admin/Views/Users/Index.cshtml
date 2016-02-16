@@ -1,0 +1,41 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<VetSystem.Data.Models.User>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.UserName);
+          columns.Bound(c => c.Email);
+          columns.Bound(c => c.CreatedOn);
+          columns.Bound(c => c.PhoneNumber);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(480);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+          toolbar.Excel();
+          toolbar.Pdf();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Navigatable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Multiple);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.MultipleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Users_Read", "Users"))
+          .Create(create => create.Action("Users_Create", "Users"))
+          .Update(update => update.Action("Users_Update", "Users"))
+          .Destroy(destroy => destroy.Action("Users_Destroy", "Users"))
+      )
+)

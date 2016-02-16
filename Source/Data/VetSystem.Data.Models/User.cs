@@ -17,6 +17,7 @@
 
 		public User()
 		{
+            this.CreatedOn = DateTime.UtcNow;
 			this.pets = new HashSet<Pet>();
 			this.companies = new HashSet<Clinic>();
 		}

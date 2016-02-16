@@ -15,8 +15,7 @@
 		{
 			this.pets = pets;
 		}
-
-        // GET: Pets
+        
         public ActionResult Index()
         {
 			var pets = this.pets

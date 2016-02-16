@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css", "~/Content/kendo")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
 
 </head>
 <body>
@@ -21,10 +22,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-					<li>@Html.ActionLink("About", "About", "Home")</li>
-					<li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("My Pets", "Index", "Pets")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.Partial("_UserMenuPartial")
+                    }
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("ClinicOwner"))
+                    {
+                        @Html.Partial("_ClinicOwnerMenuPartial")
+                    }
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                        @Html.Partial("_AdminMenuPartial")
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -38,7 +51,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
