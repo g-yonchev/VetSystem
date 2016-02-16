@@ -31,7 +31,6 @@ namespace VetSystem.Web.Areas.Admin.Controllers
 
         public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
         {
-
             DataSourceResult result = this.users.All()
                 .ToDataSourceResult(request, user => new
                 {

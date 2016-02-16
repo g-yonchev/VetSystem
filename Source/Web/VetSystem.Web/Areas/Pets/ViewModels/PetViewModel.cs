@@ -1,4 +1,4 @@
-﻿namespace VetSystem.Web.ViewModels.Pets
+﻿namespace VetSystem.Web.Areas.Pets.ViewModels
 {
 	using AutoMapper;
 

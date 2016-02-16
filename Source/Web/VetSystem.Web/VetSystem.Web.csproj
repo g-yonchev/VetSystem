@@ -240,11 +240,14 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\ClinicOwner\ClinicOwnerAreaRegistration.cs" />
     <Compile Include="Areas\ClinicOwner\Controllers\SchedulerController.cs" />
+    <Compile Include="Areas\Pets\Controllers\Class1.cs" />
+    <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
+    <Compile Include="Areas\VetClinics\VetClinicsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PetsController.cs" />
+    <Compile Include="Areas\Pets\Controllers\PetsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -269,7 +272,7 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Pets\PetViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\PetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -360,6 +363,8 @@
     <Content Include="Areas\ClinicOwner\Views\web.config" />
     <Content Include="Areas\ClinicOwner\Views\Scheduler\Index.cshtml" />
     <Content Include="Areas\ClinicOwner\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\VetClinics\Views\web.config" />
+    <Content Include="Areas\Pets\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -405,7 +410,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Pets\Index.cshtml" />
+    <Content Include="Areas\Pets\Views\Index.cshtml" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js.map" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Shared\_UserMenuPartial.cshtml" />
@@ -418,7 +423,11 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\ClinicOwner\Models\" />
     <Folder Include="Areas\ClinicOwner\Views\Shared\" />
-    <Folder Include="Views\Scheduler\" />
+    <Folder Include="Areas\Pets\Views\Shared\" />
+    <Folder Include="Areas\VetClinics\Controllers\" />
+    <Folder Include="Areas\VetClinics\Models\" />
+    <Folder Include="Areas\VetClinics\Views\Shared\" />
+    <Folder Include="ViewModels\Pets\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
