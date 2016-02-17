@@ -6,7 +6,7 @@
 
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Filters;
-
+    using Common.Constants;
     public class RatingsController : Controller
     {
         private IRatingsService ratings;
@@ -17,7 +17,7 @@
         }
 
         [HttpPost]
-        [ValidateRatingValue(0, 5)]
+        [ValidateRatingValue(ValidationConstants.MinRatingValue, ValidationConstants.MaxRatingValue)]
         public ActionResult Rate(int itemId, int ratingValue)
         {
             var userId = this.User.Identity.GetUserId();

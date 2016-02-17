@@ -1,7 +1,7 @@
 ﻿namespace VetSystem.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-
+    using VetSystem.Common.Constants;
     using VetSystem.Data.Common.Models;
 
     public class Rating : BaseModel<int>
@@ -14,7 +14,7 @@
 
         public virtual User Author { get; set; }
 
-        [Range(0,5)]
+        [Range(ValidationConstants.MinRatingValue, ValidationConstants.MaxRatingValue)]
         public int Value { get; set; }
     }
 }

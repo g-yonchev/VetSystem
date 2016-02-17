@@ -1,11 +1,11 @@
 ﻿namespace VetSystem.Data.Models
 {
-	using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using VetSystem.Common.Constants;
+    using VetSystem.Data.Common.Models;
 
-	using VetSystem.Data.Common.Models;
-
-	public class Clinic : BaseModel<int>
+    public class Clinic : BaseModel<int>
 	{
 		private ICollection<Pet> pets;
 		private ICollection<Rating> ratings;
@@ -17,9 +17,13 @@
 		}
 
 		[Required]
+        [MinLength(ValidationConstants.MinClinicNameLength)]
+        [MaxLength(ValidationConstants.MaxClinicNameLength)]
 		public string Name { get; set; }
 
 		[Required]
+        [MinLength(ValidationConstants.MinClinicInformationLength)]
+        [MaxLength(ValidationConstants.MaxClinicInformationLength)]
 		public string Information { get; set; }
 
 		public string OwnerId { get; set; }
