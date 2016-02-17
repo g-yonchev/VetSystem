@@ -16,8 +16,8 @@
 
 		public void CreateMappings(IMapperConfiguration configuration)
 		{
-			configuration.CreateMap<Pet, PetViewModel>()
-				.ForMember(m => m.ClinicName, opts => opts.MapFrom(p => p.Clinic.Name));
+            configuration.CreateMap<Pet, PetViewModel>()
+                .ForMember(m => m.ClinicName, opts => opts.MapFrom(p => p.Clinic == null ? "None clinic" : p.Clinic.Name));
 		}
 	}
 }

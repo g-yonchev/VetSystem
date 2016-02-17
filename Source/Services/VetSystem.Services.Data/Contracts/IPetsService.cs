@@ -16,6 +16,6 @@
 
 		IQueryable<Pet> GetByName(string name);
 
-		Pet Create(string name, string ownerId);
+		Pet Create(string name, int age, string ownerId, PetGender gender, string species);
 	}
 }

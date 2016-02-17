@@ -55,7 +55,7 @@
 			modelBuilder.Entity<User>().HasMany(u => u.Pets).WithRequired(p => p.Owner).WillCascadeOnDelete(true);
 			modelBuilder.Entity<User>().HasMany(u => u.Companies).WithRequired(c => c.Owner).WillCascadeOnDelete(true);
 			modelBuilder.Entity<Clinic>().HasMany(c => c.Pets).WithRequired(p => p.Clinic).WillCascadeOnDelete(false);
-
+            
 			base.OnModelCreating(modelBuilder);
 		}
 
