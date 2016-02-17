@@ -249,6 +249,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Areas\Pets\Controllers\PetsController.cs" />
+    <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -368,6 +369,7 @@
     <Content Include="Areas\Pets\Views\web.config" />
     <Content Include="Areas\VetClinics\Views\_ViewStart.cshtml" />
     <Content Include="Areas\VetClinics\Views\Clinics\Index.cshtml" />
+    <Content Include="Areas\Pets\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -430,6 +432,7 @@
     <Folder Include="Areas\Pets\Views\Shared\" />
     <Folder Include="Areas\VetClinics\Views\Shared\" />
     <Folder Include="ViewModels\Pets\" />
+    <Folder Include="Views\Rating\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>

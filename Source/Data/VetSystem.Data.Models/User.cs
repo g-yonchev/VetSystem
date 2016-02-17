@@ -14,15 +14,18 @@
     {
 		private ICollection<Pet> pets;
 		private ICollection<Clinic> companies;
+        private ICollection<Rating> ratings;
 
-		public User()
+        public User()
 		{
             this.CreatedOn = DateTime.UtcNow;
-			this.pets = new HashSet<Pet>();
-			this.companies = new HashSet<Clinic>();
-		}
 
-		public virtual ICollection<Pet> Pets
+            this.pets = new HashSet<Pet>();
+			this.companies = new HashSet<Clinic>();
+			this.ratings = new HashSet<Rating>();
+        }
+
+        public virtual ICollection<Pet> Pets
 		{
 			get { return this.pets; }
 			set { this.pets = value; }
@@ -33,6 +36,12 @@
 			get { return this.companies; }
 			set { this.companies = value; }
 		}
+
+        public virtual ICollection<Rating> Ratings
+        {
+            get { return this.ratings; }
+            set { this.ratings = value; }
+        }
 
         public DateTime CreatedOn { get; set; }
 

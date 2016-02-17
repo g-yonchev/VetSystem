@@ -24,6 +24,8 @@
 
         public virtual IDbSet<Task> Tasks { get; set; }
 
+        public virtual IDbSet<Rating> Ratings { get; set; }
+
         public static VetSystemDbContext Create()
         {
             return new VetSystemDbContext();

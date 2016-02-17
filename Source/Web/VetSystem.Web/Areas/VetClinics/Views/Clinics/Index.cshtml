@@ -8,6 +8,20 @@
 @foreach (var clinic in Model)
 {
     <div>
+        <h3> Rating:</h3>
+        <div>
+            @for (int i = 1; i <= 5; i++)
+            {
+                <span class="glyphicon glyphicon-star-empty" data-id="@clinic.Id" data-value="@i" aria-hidden="true"></span>
+            }
+
+            <div>
+                Current rating:
+                <span data-id="@clinic.Id" data-value="ratingValue">@clinic.RatingCount</span>
+            </div>
+        </div>
+    </div>
+    <div>
         Name: @clinic.Name
     </div>
     <div>
@@ -21,3 +35,50 @@
     </div>
     <hr />
 }
+
+<style>
+    span.glyphicon.glyphicon-star-empty, span.glyphicon.glyphicon-star {
+        cursor: pointer;
+    }
+</style>
+
+@section scripts {
+    <script>
+
+        $("span[data-value='1']").click(function () {
+            var id = $(this).attr("data-id");
+            makeRating(id, 1);
+        })
+
+        $("span[data-value='2']").click(function () {
+            var id = $(this).attr("data-id");
+            makeRating(id, 2);
+        })
+
+        $("span[data-value='3']").click(function () {
+            var id = $(this).attr("data-id");
+            makeRating(id, 3);
+        })
+
+        $("span[data-value='4']").click(function () {
+            var id = $(this).attr("data-id");
+            makeRating(id, 4);
+        })
+
+        $("span[data-value='5']").click(function () {
+            var id = $(this).attr("data-id");
+            makeRating(id, 5);
+        })
+
+        function makeRating(itemId, ratingValue) {
+            $.post("/Ratings/Rate", { clinicId: itemId, ratingValue: ratingValue },
+                function (data) {
+                    var newRatingCount = data.Count;
+
+                    var a = $("span[data-value='ratingValue'][data-id='" + itemId + "']").html(newRatingCount);
+                });
+        }
+
+    </script>
+}
+

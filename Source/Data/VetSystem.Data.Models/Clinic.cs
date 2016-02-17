@@ -8,10 +8,12 @@
 	public class Clinic : BaseModel<int>
 	{
 		private ICollection<Pet> pets;
+		private ICollection<Rating> ratings;
 
 		public Clinic()
 		{
 			this.pets = new HashSet<Pet>();
+			this.ratings = new HashSet<Rating>();
 		}
 
 		[Required]
@@ -29,5 +31,11 @@
 			get { return this.pets; }
 			set { this.pets = value; }
 		}
-	}
+
+        public virtual ICollection<Rating> Ratings
+        {
+            get { return this.ratings; }
+            set { this.ratings = value; }
+        }
+    }
 }
