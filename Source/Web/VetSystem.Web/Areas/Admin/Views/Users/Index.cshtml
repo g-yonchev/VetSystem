@@ -1,6 +1,6 @@
 ﻿@using Kendo.Mvc.UI
 
-@(Html.Kendo().Grid<VetSystem.Data.Models.User>()
+@(Html.Kendo().Grid<VetSystem.Web.Areas.Admin.ViewModels.UserViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
@@ -8,8 +8,10 @@
           columns.Bound(c => c.Email);
           columns.Bound(c => c.CreatedOn);
           columns.Bound(c => c.PhoneNumber);
+          columns.Bound(c => c.PetsCount);
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
+      .ColumnResizeHandleWidth(500)
       .ToolBar(toolbar =>
       {
           toolbar.Create();

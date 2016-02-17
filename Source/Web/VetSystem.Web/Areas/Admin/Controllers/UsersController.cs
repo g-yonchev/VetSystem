@@ -12,6 +12,8 @@ using VetSystem.Data.Models;
 using VetSystem.Data;
 using VetSystem.Data.Common.Repositories;
 using VetSystem.Services.Data.Contracts;
+using VetSystem.Web.Infrastructure.Mapping;
+using VetSystem.Web.Areas.Admin.ViewModels;
 
 namespace VetSystem.Web.Areas.Admin.Controllers
 {
@@ -32,25 +34,8 @@ namespace VetSystem.Web.Areas.Admin.Controllers
         public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
         {
             DataSourceResult result = this.users.All()
-                .ToDataSourceResult(request, user => new
-                {
-                    Id = user.Id,
-                    CreatedOn = user.CreatedOn,
-                    ModifiedOn = user.ModifiedOn,
-                    IsDeleted = user.IsDeleted,
-                    DeletedOn = user.DeletedOn,
-                    Email = user.Email,
-                    EmailConfirmed = user.EmailConfirmed,
-                    PasswordHash = user.PasswordHash,
-                    SecurityStamp = user.SecurityStamp,
-                    PhoneNumber = user.PhoneNumber,
-                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                    TwoFactorEnabled = user.TwoFactorEnabled,
-                    LockoutEndDateUtc = user.LockoutEndDateUtc,
-                    LockoutEnabled = user.LockoutEnabled,
-                    AccessFailedCount = user.AccessFailedCount,
-                    UserName = user.UserName
-                });
+                .To<UserViewModel>()
+                .ToDataSourceResult(request);
 
             return Json(result);
         }
