@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VetSystem.Data.Common.Models;
-
-namespace VetSystem.Data.Models
+﻿namespace VetSystem.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using VetSystem.Data.Common.Models;
+
     public class Rating : BaseModel<int>
     {
         public int ClinicId { get; set; }
