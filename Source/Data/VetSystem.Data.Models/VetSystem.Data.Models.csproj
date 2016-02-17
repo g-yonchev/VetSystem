@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clinic.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="PetGender.cs" />
     <Compile Include="PetSpecies.cs" />

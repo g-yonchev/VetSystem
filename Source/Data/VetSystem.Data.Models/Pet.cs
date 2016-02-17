@@ -31,5 +31,7 @@
 		public int? ClinicId { get; set; }
 
 		public virtual Clinic Clinic { get; set; }
-	}
+
+        public virtual Image Image { get; set; }
+    }
 }
