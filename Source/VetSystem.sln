@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetSystem.Web.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetSystem.Services.Web", "Services\VetSystem.Services.Web\VetSystem.Services.Web.csproj", "{A8608EE3-2035-4DE6-B8E6-D49534AF8221}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{CE228EEF-C4A3-4A7D-8501-8EAA50E0B73F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetSystem.Common", "Common\VetSystem.Common\VetSystem.Common.csproj", "{656A8F90-D4D4-43DB-B342-92021F3149B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{A8608EE3-2035-4DE6-B8E6-D49534AF8221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8608EE3-2035-4DE6-B8E6-D49534AF8221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8608EE3-2035-4DE6-B8E6-D49534AF8221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{656A8F90-D4D4-43DB-B342-92021F3149B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656A8F90-D4D4-43DB-B342-92021F3149B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656A8F90-D4D4-43DB-B342-92021F3149B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656A8F90-D4D4-43DB-B342-92021F3149B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +77,6 @@ Global
 		{5D35294E-0B2B-4291-91AE-0DA419DA10ED} = {F3C00697-396F-454F-859B-D52B46B9E2E5}
 		{A2E0FF4A-920B-4D75-AB32-69355A7B25E3} = {E7AA8D58-6E29-4DD3-A32E-3A4F2F6450A4}
 		{A8608EE3-2035-4DE6-B8E6-D49534AF8221} = {F3C00697-396F-454F-859B-D52B46B9E2E5}
+		{656A8F90-D4D4-43DB-B342-92021F3149B1} = {CE228EEF-C4A3-4A7D-8501-8EAA50E0B73F}
 	EndGlobalSection
 EndGlobal

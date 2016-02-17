@@ -4,9 +4,10 @@
 
     using Microsoft.AspNet.Identity;
 
+    using VetSystem.Common.Constants;
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Filters;
-    using Common.Constants;
+
     public class RatingsController : Controller
     {
         private IRatingsService ratings;

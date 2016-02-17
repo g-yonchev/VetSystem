@@ -21,6 +21,9 @@
                       "~/Scripts/KendoUI/kendo.all.min.js",
                       "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/rate").Include(
+                      "~/Scripts/Custom/rating.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

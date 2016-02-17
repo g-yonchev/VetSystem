@@ -372,6 +372,7 @@
     <Content Include="Areas\VetClinics\Views\Clinics\Index.cshtml" />
     <Content Include="Areas\Pets\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\rating.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -444,6 +445,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\VetSystem.Common\VetSystem.Common.csproj">
+      <Project>{656a8f90-d4d4-43db-b342-92021f3149b1}</Project>
+      <Name>VetSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\VetSystem.Data.Common\VetSystem.Data.Common.csproj">
       <Project>{7104a53a-459c-4d23-824e-ec163bd2c1d1}</Project>
       <Name>VetSystem.Data.Common</Name>
