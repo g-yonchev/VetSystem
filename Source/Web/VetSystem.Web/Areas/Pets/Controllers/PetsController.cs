@@ -1,9 +1,9 @@
 ﻿namespace VetSystem.Web.Areas.Pets.Controllers
 {
-    using Data.Models;
-    using Microsoft.AspNet.Identity;
     using System.Linq;
     using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity;
 
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Areas.Pets.ViewModels;
@@ -27,7 +27,7 @@
                 .To<PetViewModel>()
                 .ToList();
 
-            return View(pets);
+            return this.View(pets);
         }
 
         [HttpGet]
@@ -55,6 +55,12 @@
                 model.Species);
 
             return this.RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            return this.View();
         }
     }
 }

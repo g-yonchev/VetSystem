@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using VetSystem.Data.Models;
-using VetSystem.Data;
-using VetSystem.Data.Common.Repositories;
-using VetSystem.Services.Data.Contracts;
-using VetSystem.Web.Infrastructure.Mapping;
-using VetSystem.Web.Areas.Admin.ViewModels;
-
-namespace VetSystem.Web.Areas.Admin.Controllers
+﻿namespace VetSystem.Web.Areas.Admin.Controllers
 {
-    public class UsersController : Controller
+    using System;
+    using System.Web.Mvc;
+
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+
+    using VetSystem.Services.Data.Contracts;
+    using VetSystem.Web.Areas.Admin.ViewModels;
+    using VetSystem.Web.Controllers;
+    using VetSystem.Web.Infrastructure.Mapping;
+
+    public class UsersController : BaseController
     {
         private IUsersService users;
 
@@ -28,7 +22,7 @@ namespace VetSystem.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
@@ -37,7 +31,7 @@ namespace VetSystem.Web.Areas.Admin.Controllers
                 .To<UserViewModel>()
                 .ToDataSourceResult(request);
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -45,7 +39,7 @@ namespace VetSystem.Web.Areas.Admin.Controllers
         {
             this.users.Update(user.Id, user.UserName, user.Email, user.PhoneNumber);
 
-            return Json(new[] { user }.ToDataSourceResult(request));
+            return this.Json(new[] { user }.ToDataSourceResult(request));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -53,7 +47,7 @@ namespace VetSystem.Web.Areas.Admin.Controllers
         {
             this.users.Delete(user.Id);
 
-            return Json(new[] { user }.ToDataSourceResult(request));
+            return this.Json(new[] { user }.ToDataSourceResult(request));
         }
 
         [HttpPost]
@@ -61,7 +55,7 @@ namespace VetSystem.Web.Areas.Admin.Controllers
         {
             var fileContents = Convert.FromBase64String(base64);
 
-            return File(fileContents, contentType, fileName);
+            return this.File(fileContents, contentType, fileName);
         }
 
         [HttpPost]
@@ -69,7 +63,7 @@ namespace VetSystem.Web.Areas.Admin.Controllers
         {
             var fileContents = Convert.FromBase64String(base64);
 
-            return File(fileContents, contentType, fileName);
+            return this.File(fileContents, contentType, fileName);
         }
     }
 }

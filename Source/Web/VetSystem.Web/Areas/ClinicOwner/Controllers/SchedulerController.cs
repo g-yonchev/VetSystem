@@ -1,32 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using VetSystem.Data.Models;
-using VetSystem.Data;
-
-namespace VetSystem.Web.Areas.ClinicOwner.Controllers
+﻿namespace VetSystem.Web.Areas.ClinicOwner.Controllers
 {
-    public class SchedulerController : Controller
+    using System;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+
+    using VetSystem.Data;
+    using VetSystem.Web.Controllers;
+
+    public class SchedulerController : BaseController
     {
         private VetSystemDbContext db = new VetSystemDbContext();
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Pdf_Export_Save(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
 
-            return File(fileContents, contentType, fileName);
+            return this.File(fileContents, contentType, fileName);
         }
 
         public ActionResult Tasks_Read([DataSourceRequest] DataSourceRequest request)
@@ -35,7 +34,7 @@ namespace VetSystem.Web.Areas.ClinicOwner.Controllers
                         .Select(task => new TaskViewModel(task))
                         .AsQueryable();
 
-            return Json(data.ToDataSourceResult(request));
+            return this.Json(data.ToDataSourceResult(request));
         }
 
         public virtual JsonResult Tasks_Create([DataSourceRequest] DataSourceRequest request, TaskViewModel task)
@@ -53,7 +52,7 @@ namespace VetSystem.Web.Areas.ClinicOwner.Controllers
                 task.Id = entity.Id;
             }
 
-            return Json(new[] { task }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { task }.ToDataSourceResult(request, ModelState));
         }
         public virtual JsonResult Tasks_Update([DataSourceRequest] DataSourceRequest request, TaskViewModel task)
         {
@@ -70,7 +69,7 @@ namespace VetSystem.Web.Areas.ClinicOwner.Controllers
                 db.SaveChanges();
             }
 
-            return Json(new[] { task }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { task }.ToDataSourceResult(request, ModelState));
         }
         public virtual JsonResult Tasks_Destroy([DataSourceRequest] DataSourceRequest request, TaskViewModel task)
         {
@@ -82,7 +81,7 @@ namespace VetSystem.Web.Areas.ClinicOwner.Controllers
                 db.SaveChanges();
             }
 
-            return Json(new[] { task }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { task }.ToDataSourceResult(request, ModelState));
         }
 
         protected override void Dispose(bool disposing)

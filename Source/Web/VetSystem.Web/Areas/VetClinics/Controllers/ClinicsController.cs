@@ -1,13 +1,14 @@
 ﻿namespace VetSystem.Web.Areas.VetClinics.Controllers
 {
-    using Infrastructure.Mapping;
     using System.Linq;
     using System.Web.Mvc;
 
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Areas.VetClinics.ViewModels;
+    using VetSystem.Web.Controllers;
+    using VetSystem.Web.Infrastructure.Mapping;
 
-    public class ClinicsController : Controller
+    public class ClinicsController : BaseController
     {
         private IClinicsService clinics;
 
@@ -23,7 +24,7 @@
                 .To<ClinicViewModel>()
                 .ToList();
 
-            return View(clinics);
+            return this.View(clinics);
         }
     }
 }
