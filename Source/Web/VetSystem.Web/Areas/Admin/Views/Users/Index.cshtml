@@ -9,12 +9,11 @@
           columns.Bound(c => c.CreatedOn);
           columns.Bound(c => c.PhoneNumber);
           columns.Bound(c => c.PetsCount);
-          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(130);
       })
       .ColumnResizeHandleWidth(500)
       .ToolBar(toolbar =>
       {
-          toolbar.Create();
           toolbar.Excel();
           toolbar.Pdf();
       })
@@ -31,9 +30,8 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("Users_Read", "Users"))
-          .Create(create => create.Action("Users_Create", "Users"))
-          .Update(update => update.Action("Users_Update", "Users"))
-          .Destroy(destroy => destroy.Action("Users_Destroy", "Users"))
+          .Read(read => read.Action("Read", "Users"))
+          .Update(update => update.Action("Update", "Users"))
+          .Destroy(destroy => destroy.Action("Destroy", "Users"))
       )
 )

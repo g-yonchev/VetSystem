@@ -19,9 +19,9 @@ namespace VetSystem.Web.Areas.Admin.Controllers
 {
     public class UsersController : Controller
     {
-        private IDbRepository<User> users;
+        private IUsersService users;
 
-        public UsersController(IDbRepository<User> users)
+        public UsersController(IUsersService users)
         {
             this.users = users;
         }
@@ -31,9 +31,9 @@ namespace VetSystem.Web.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
+        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            DataSourceResult result = this.users.All()
+            DataSourceResult result = this.users.GetAll()
                 .To<UserViewModel>()
                 .ToDataSourceResult(request);
 
@@ -41,76 +41,19 @@ namespace VetSystem.Web.Areas.Admin.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Create([DataSourceRequest]DataSourceRequest request, User user)
+        public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserViewModel user)
         {
-            if (ModelState.IsValid)
-            {
-                var entity = new User
-                {
-                    CreatedOn = user.CreatedOn,
-                    ModifiedOn = user.ModifiedOn,
-                    IsDeleted = user.IsDeleted,
-                    DeletedOn = user.DeletedOn,
-                    Email = user.Email,
-                    EmailConfirmed = user.EmailConfirmed,
-                    PasswordHash = user.PasswordHash,
-                    SecurityStamp = user.SecurityStamp,
-                    PhoneNumber = user.PhoneNumber,
-                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                    TwoFactorEnabled = user.TwoFactorEnabled,
-                    LockoutEndDateUtc = user.LockoutEndDateUtc,
-                    LockoutEnabled = user.LockoutEnabled,
-                    AccessFailedCount = user.AccessFailedCount,
-                    UserName = user.UserName
-                };
+            this.users.Update(user.Id, user.UserName, user.Email, user.PhoneNumber);
 
-                this.users.Add(entity);
-                this.users.Save();
-                user.Id = entity.Id;
-            }
-
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { user }.ToDataSourceResult(request));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Update([DataSourceRequest]DataSourceRequest request, User user)
+        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, UserViewModel user)
         {
-            if (ModelState.IsValid)
-            {
-                var entity = new User
-                {
-                    Id = user.Id,
-                    CreatedOn = user.CreatedOn,
-                    ModifiedOn = user.ModifiedOn,
-                    IsDeleted = user.IsDeleted,
-                    DeletedOn = user.DeletedOn,
-                    Email = user.Email,
-                    EmailConfirmed = user.EmailConfirmed,
-                    PasswordHash = user.PasswordHash,
-                    SecurityStamp = user.SecurityStamp,
-                    PhoneNumber = user.PhoneNumber,
-                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                    TwoFactorEnabled = user.TwoFactorEnabled,
-                    LockoutEndDateUtc = user.LockoutEndDateUtc,
-                    LockoutEnabled = user.LockoutEnabled,
-                    AccessFailedCount = user.AccessFailedCount,
-                    UserName = user.UserName
-                };
+            this.users.Delete(user.Id);
 
-                this.users.Update(entity);
-                this.users.Save();
-            }
-
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Users_Destroy([DataSourceRequest]DataSourceRequest request, User user)
-        {
-            this.users.Delete(user);
-            this.users.Save();
-
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { user }.ToDataSourceResult(request));
         }
 
         [HttpPost]
@@ -127,12 +70,6 @@ namespace VetSystem.Web.Areas.Admin.Controllers
             var fileContents = Convert.FromBase64String(base64);
 
             return File(fileContents, contentType, fileName);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            this.users.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

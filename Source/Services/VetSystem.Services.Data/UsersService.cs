@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VetSystem.Data.Common.Repositories;
-using VetSystem.Data.Models;
-using VetSystem.Services.Data.Contracts;
-
-namespace VetSystem.Services.Data
+﻿namespace VetSystem.Services.Data
 {
+    using System;
+    using System.Linq;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using VetSystem.Data;
+    using VetSystem.Data.Common.Repositories;
+    using VetSystem.Data.Models;
+    using VetSystem.Services.Data.Contracts;
+
     public class UsersService : IUsersService
     {
         private readonly IDbRepository<User> users;
@@ -19,12 +20,56 @@ namespace VetSystem.Services.Data
             this.users = users;
         }
 
-        public void AddUser(User user, string password)
+        public User CreateUserAsClient(string username, string password)
         {
-            user.PasswordHash = new PasswordHasher().HashPassword(password);
-            user.SecurityStamp = Guid.NewGuid().ToString();
-            user.UserName = user.Email;
+            var user = new User
+            {
+                UserName = username,
+                Email = username,
+                PasswordHash = new PasswordHasher().HashPassword(password),
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            
             this.users.Add(user);
+            this.users.Save();
+
+            return user;
+        }
+
+        public User CreateUserAsClinicOwner(string username, string password)
+        {
+            var user = new User
+            {
+                UserName = username,
+                Email = username,
+                PasswordHash = new PasswordHasher().HashPassword(password),
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+
+            var db = new VetSystemDbContext();
+
+            var clinicOwnerRole = db.Roles.Where(r => r.Name == "ClinicOwner").FirstOrDefault();
+            var role = new IdentityUserRole
+            {
+                RoleId = clinicOwnerRole.Id
+            };
+
+            this.users.Add(user);
+			user.Roles.Add(role);
+            db.Dispose();
+            this.users.Save();
+
+            return user;
+        }
+
+        public void Update(string id, string username, string email, string phoneNumber)
+        {
+            var user = this.users.GetById(id);
+
+            user.Email = email;
+            user.UserName = username;
+            user.PhoneNumber = phoneNumber;
+
             this.users.Save();
         }
 
@@ -48,12 +93,6 @@ namespace VetSystem.Services.Data
         public User GetById(string id)
         {
             return this.users.GetById(id);
-        }
-
-        public void Update()
-        {
-            this.users.Save();
-            throw new NotImplementedException();
         }
     }
 }

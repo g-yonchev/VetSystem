@@ -13,9 +13,11 @@ namespace VetSystem.Services.Data.Contracts
 
         User GetById(string id);
 
-        void Update();
+        User CreateUserAsClient(string username, string password);
 
-        void AddUser(User user, string password);
+        User CreateUserAsClinicOwner(string username, string password);
+
+        void Update(string id, string username, string email, string phoneNumber);
 
         void Delete(string id);
     }

@@ -52,7 +52,7 @@ namespace VetSystem.Data.Migrations
 
 			// Clinic Owner Users
 			var clinicOwners = new List<User>();
-
+            
 			var clinicOwnerRoleDbBluecross = context.Roles.Where(r => r.Name == "ClinicOwner").FirstOrDefault();
 			var clinicOwnerRoleBluecross = new IdentityUserRole
 			{
