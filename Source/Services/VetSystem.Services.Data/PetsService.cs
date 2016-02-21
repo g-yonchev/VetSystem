@@ -45,6 +45,7 @@
 		{
             if (picture == null)
             {
+                // TODO: get default picture
                 picture = "default picture";
             }
 
@@ -64,10 +65,23 @@
 			return pet;
 		}
 
-		public IQueryable<Pet> GetMine(string user)
+		public IQueryable<Pet> GetMineByUserName(string userName)
 		{
-			var pets = this.pets.All().Where(x => x.Owner.Email == user).OrderByDescending(x => x.CreatedOn);
+			var pets = this.pets.All().Where(x => x.Owner.UserName == userName).OrderByDescending(x => x.CreatedOn);
 			return pets;
 		}
-	}
+
+        public IQueryable<Pet> GetMineByUserId(string userId)
+        {
+            var pets = this.pets.All().Where(x => x.Owner.Id == userId).OrderByDescending(x => x.CreatedOn);
+            return pets;
+        }
+
+        public void AddToClinic(int petId, int clinicId)
+        {
+            var pet = this.pets.GetById(petId);
+            pet.ClinicId = clinicId;
+            this.pets.Save();
+        }
+    }
 }

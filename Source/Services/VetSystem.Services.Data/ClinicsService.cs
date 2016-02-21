@@ -9,10 +9,12 @@
     public class ClinicsService : IClinicsService
     {
         private readonly IDbRepository<Clinic> clinics;
+        private readonly IDbRepository<Pet> pets;
 
-        public ClinicsService(IDbRepository<Clinic> clinics)
+        public ClinicsService(IDbRepository<Clinic> clinics, IDbRepository<Pet> pets)
         {
             this.clinics = clinics;
+            this.pets = pets;
         }
 
         public IQueryable<Clinic> GetAll()

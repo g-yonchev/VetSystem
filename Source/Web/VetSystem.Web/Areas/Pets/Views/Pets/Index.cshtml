@@ -4,10 +4,11 @@
 
 @foreach (var pet in Model)
 {
-	<div>
+	<h2>
 		Name: @pet.Name
-	</div>
-	<div>
-		Clinic: @pet.ClinicName
-	</div>
+	</h2>
+	<h4>
+		@pet.Species
+	</h4>
+    <hr />
 }

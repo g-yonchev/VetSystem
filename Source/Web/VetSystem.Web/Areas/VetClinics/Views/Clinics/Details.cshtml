@@ -1,5 +1,5 @@
-﻿@model VetSystem.Web.Areas.VetClinics.ViewModels.ClinicDetailsViewModel
-
+﻿@using Kendo.Mvc.UI
+@model VetSystem.Web.Areas.VetClinics.ViewModels.ClinicDetailsViewModel
 
 <h1>
     Name: @Model.Name
@@ -7,7 +7,7 @@
 
 <div>
     <h3> Rating:</h3>
-    
+
 </div>
 
 <div>
@@ -29,9 +29,41 @@
     City: @Model.CityName
 </div>
 <div>
-    Pets in this clinic: @Model.PetsCount
+    Pets in this clinic: <span>@Model.PetsCount</span>
 </div>
 <hr />
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("JoinPetToClinic", "Pets", new { area = "Pets", clinicId = Model.Id }, FormMethod.Post, null))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                @(Html.Kendo()
+                .DropDownList()
+                .Name("petId")
+                .DataTextField("Name")
+                .DataValueField("Id")
+                .DataSource(source =>
+                {
+                    source.Read(read =>
+                    {
+                        read.Action("GetUserPets", "Pets", new { area = "Pets" });
+                    });
+                })
+                .HtmlAttributes(new { style = "width: 30%" }))
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Join" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+}
 
 <style>
     span.glyphicon.glyphicon-star-empty, span.glyphicon.glyphicon-star {

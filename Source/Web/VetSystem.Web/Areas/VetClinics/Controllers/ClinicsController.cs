@@ -10,7 +10,7 @@
 
     public class ClinicsController : BaseController
     {
-        private IClinicsService clinics;
+        private readonly IClinicsService clinics;
 
         public ClinicsController(IClinicsService clinics)
         {

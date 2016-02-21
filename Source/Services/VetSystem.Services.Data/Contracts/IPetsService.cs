@@ -8,14 +8,18 @@
 	{
 		IQueryable<Pet> GetAll();
 
-		IQueryable<Pet> GetMine(string userId);
+		IQueryable<Pet> GetMineByUserName(string userName);
 
-		IQueryable<Pet> Get(int count);
+        IQueryable<Pet> GetMineByUserId(string userId);
+
+        IQueryable<Pet> Get(int count);
 
         IQueryable<Pet> GetById(int id);
 
 		IQueryable<Pet> GetByName(string name);
 
 		Pet Create(string name, int age, string ownerId, PetGender gender, int speciesId, string picture = null);
-	}
+
+        void AddToClinic(int petId, int clinicId);
+    }
 }

@@ -10,27 +10,43 @@
     using VetSystem.Web.Areas.Pets.ViewModels;
     using VetSystem.Web.Infrastructure.Mapping;
     using Data.Models;
+    using VetClinics.ViewModels;
+
     public class PetsController : BaseController
     {
-		private readonly IPetsService pets;
-		private readonly ISpeciesService species;
+        private readonly IPetsService pets;
+        private readonly ISpeciesService species;
 
-		public PetsController(IPetsService pets, ISpeciesService species, IUsersService users)
+        public PetsController(IPetsService pets, ISpeciesService species, IUsersService users)
             : base(users)
-		{
-			this.pets = pets;
+        {
+            this.pets = pets;
             this.species = species;
         }
-        
+
         [HttpGet]
         public ActionResult Index()
         {
-			var pets = this.pets
-				.GetMine(this.User.Identity.Name)
+            var userId = this.CurrentUser.Id;
+
+            var pets = this.pets
+                .GetMineByUserId(userId)
                 .To<PetViewModel>()
                 .ToList();
 
             return this.View(pets);
+        }
+
+        [HttpGet]
+        public ActionResult GetUserPets()
+        {
+            var userId = this.CurrentUser.Id;
+
+            var pets = this.pets.GetMineByUserId(userId)
+                .To<PetJoinToClinicViewModel>()
+                .ToList();
+
+            return this.Json(pets, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -89,7 +105,7 @@
                 .GetById(id)
                 .To<PetViewModel>()
                 .FirstOrDefault();
-            
+
             return this.View(pet);
         }
 
@@ -103,14 +119,11 @@
             return this.Json(species, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult JoinToClinic()
+        public ActionResult JoinPetToClinic(int clinicId, int petId)
         {
-            var species = this.species
-                .GetAll()
-                .To<SpeciesViewModel>()
-                .ToList();
+            this.pets.AddToClinic(petId, clinicId);
 
-            return this.Json(species, JsonRequestBehavior.AllowGet);
+            return this.RedirectToAction("Details", new { id = petId });
         }
     }
 }
