@@ -11,7 +11,7 @@ namespace VetSystem.Services.Data
 {
     public class CitiesService : ICitiesService
     {
-        private IDbRepository<City> cities;
+        private readonly IDbRepository<City> cities;
 
         public CitiesService(IDbRepository<City> cities)
         {

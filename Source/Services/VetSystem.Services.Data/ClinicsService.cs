@@ -8,7 +8,7 @@
 
     public class ClinicsService : IClinicsService
     {
-        private IDbRepository<Clinic> clinics;
+        private readonly IDbRepository<Clinic> clinics;
 
         public ClinicsService(IDbRepository<Clinic> clinics)
         {

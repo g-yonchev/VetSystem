@@ -11,7 +11,7 @@ namespace VetSystem.Services.Data
 {
     public class SpeciesService : ISpeciesService
     {
-        private IDbRepository<PetSpecies> species;
+        private readonly IDbRepository<PetSpecies> species;
 
         public SpeciesService(IDbRepository<PetSpecies> species)
         {

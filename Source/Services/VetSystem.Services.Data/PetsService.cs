@@ -9,8 +9,8 @@
 
 	public class PetsService : IPetsService
 	{
-		private IDbRepository<Pet> pets;
-        private IDbRepository<Clinic> clinics;
+		private readonly IDbRepository<Pet> pets;
+        private readonly IDbRepository<Clinic> clinics;
 
 		public PetsService(IDbRepository<Pet> pets, IDbRepository<Clinic> clinics)
 		{
@@ -41,11 +41,8 @@
 			return pets;
 		}
 
-
         public Pet Create(string name, int age, string ownerId, PetGender gender, int speciesId, string picture = null)
 		{
-            var clinic = this.clinics.All().FirstOrDefault();
-
             if (picture == null)
             {
                 picture = "default picture";
@@ -56,7 +53,6 @@
                 Name = name,
                 Age = age,
                 OwnerId = ownerId,
-                Clinic = clinic,
                 Gender = gender,
                 SpeciesId = speciesId,
                 Picture = picture

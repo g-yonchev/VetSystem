@@ -102,5 +102,15 @@
 
             return this.Json(species, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult JoinToClinic()
+        {
+            var species = this.species
+                .GetAll()
+                .To<SpeciesViewModel>()
+                .ToList();
+
+            return this.Json(species, JsonRequestBehavior.AllowGet);
+        }
     }
 }

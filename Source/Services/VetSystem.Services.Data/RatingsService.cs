@@ -9,7 +9,7 @@
 
     public class RatingsService : IRatingsService
     {
-        private IDbRepository<Rating> ratings;
+        private readonly IDbRepository<Rating> ratings;
 
         public RatingsService(IDbRepository<Rating> ratings)
         {
