@@ -3,8 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 @foreach (var clinic in Model)
 {
     <div>
@@ -27,6 +25,9 @@
     </div>
     <div>
         Name: @clinic.Name
+    </div>
+    <div>
+        Name: @clinic.CityName
     </div>
     <div>
         Owner: @clinic.OwnerName

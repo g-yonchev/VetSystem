@@ -1,23 +1,22 @@
 ﻿namespace VetSystem.Web.Controllers
 {
     using System;
-    using System.Web.Routing;
+    using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Routing;
 
     using AutoMapper;
 
-    using VetSystem.Services.Web;
-    using VetSystem.Services.Data.Contracts;
-    using VetSystem.Web.Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
-    using ViewModels.Users;
-    using System.Linq;
-    using Services.Data;
-    using Data.Models;
-    using Data.Common.Repositories;
+
+    using VetSystem.Services.Data.Contracts;
+    using VetSystem.Services.Web;
+    using VetSystem.Web.Infrastructure.Mapping;
+    using VetSystem.Web.ViewModels.Users;
+
     public abstract class BaseController : Controller
 	{
-        private IUsersService users = new UsersService(new DbRepository<User>(new Data.VetSystemDbContext()));
+        public IUsersService Users { get; set; }
 
 		public ICacheService Cache { get; set; }
 
@@ -42,7 +41,7 @@
             if (requestContext.HttpContext.User.Identity.IsAuthenticated)
             {
                 var id = requestContext.HttpContext.User.Identity.GetUserId();
-                var user = this.users.GetById(id);
+                var user = this.Users.GetById(id);
                 
                 var pets = user.Pets.AsQueryable().To<PetForMenuViewModel>().ToList();
 

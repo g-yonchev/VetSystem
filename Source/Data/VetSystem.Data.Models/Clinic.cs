@@ -30,7 +30,11 @@
 
 		public virtual User Owner { get; set; }
 
-		public virtual ICollection<Pet> Pets
+        public int CityId { get; set; }
+
+        public virtual City City { get; set; }
+
+        public virtual ICollection<Pet> Pets
 		{
 			get { return this.pets; }
 			set { this.pets = value; }

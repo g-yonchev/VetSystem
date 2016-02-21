@@ -146,14 +146,28 @@ namespace VetSystem.Data.Migrations
 
 			context.SaveChanges();
 
+            // Cities
+            var cities = new List<City>()
+            {
+                new City { Name = "Sofia" },
+                new City { Name = "Varna" },
+                new City { Name = "Burgas" },
+                new City { Name = "Plovdiv" },
+            };
+
+            context.Cities.AddOrUpdate(cities.ToArray());
+            context.SaveChanges();
+
 			// Clinics
 			for (int i = 1; i <= 10; i++)
 			{
 				var owner = clinicOwners[i % clinicOwners.Count()];
-				var clinic = new Clinic
-				{
-					Name = $"Some Clinic {i}",
-					Information = $"Lorem Ipsum... {i}",
+                var city = cities[i % cities.Count()];
+                var clinic = new Clinic
+                {
+                    Name = $"Some Clinic {i}",
+                    Information = $"Lorem Ipsum... {i}",
+                    City = city,
 					Owner = owner,
 				};
 

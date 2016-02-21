@@ -20,7 +20,9 @@
 
 		public virtual IDbSet<Pet> Pets { get; set; }
 
-		public virtual IDbSet<PetSpecies> Species { get; set; }
+        public virtual IDbSet<City> Cities { get; set; }
+
+        public virtual IDbSet<PetSpecies> Species { get; set; }
 
         public virtual IDbSet<Task> Tasks { get; set; }
 

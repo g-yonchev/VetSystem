@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="City.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
