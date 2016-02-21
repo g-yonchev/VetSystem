@@ -26,5 +26,15 @@
 
             return this.View(clinics);
         }
+
+        public ActionResult Details(int id)
+        {
+            var clinic = this.clinics
+                .GetById(id)
+                .To<ClinicDetailsViewModel>()
+                .FirstOrDefault();
+
+            return this.View(clinic);
+        }
     }
 }

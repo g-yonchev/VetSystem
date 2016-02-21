@@ -20,5 +20,10 @@
             var clinics = this.clinics.All();
             return clinics;
         }
+
+        public IQueryable<Clinic> GetById(int id)
+        {
+            return this.clinics.All().Where(x => x.Id == id);
+        }
     }
 }

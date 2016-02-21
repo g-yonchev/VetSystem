@@ -247,6 +247,7 @@
     <Compile Include="Areas\Pets\ViewModels\SpeciesViewModel.cs" />
     <Compile Include="Areas\VetClinics\Controllers\ClinicsController.cs" />
     <Compile Include="Areas\VetClinics\VetClinicsAreaRegistration.cs" />
+    <Compile Include="Areas\VetClinics\ViewModels\ClinicDetailsViewModel.cs" />
     <Compile Include="Areas\VetClinics\ViewModels\ClinicViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -379,6 +380,7 @@
     <Content Include="Areas\Pets\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Pets\Views\Pets\Create.cshtml" />
     <Content Include="Areas\Pets\Views\Pets\Details.cshtml" />
+    <Content Include="Areas\VetClinics\Views\Clinics\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\rating.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

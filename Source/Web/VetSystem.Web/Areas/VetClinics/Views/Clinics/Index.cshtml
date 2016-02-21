@@ -1,53 +1,18 @@
 ﻿@model ICollection<VetSystem.Web.Areas.VetClinics.ViewModels.ClinicViewModel>
-@{
-    ViewBag.Title = "Index";
-}
 
 @foreach (var clinic in Model)
 {
+    <h1>
+        <a href="@string.Format("/VetClinics/Clinics/Details/{0}", clinic.Id)">@clinic.Name</a>
+    </h1>
     <div>
-        <h3> Rating:</h3>
-        <div>
-
-            @if (this.User.Identity.IsAuthenticated)
-            {
-                for (int i = 1; i <= 5; i++)
-                {
-                    <span class="glyphicon glyphicon-star-empty" data-id="@clinic.Id" data-value="@i" aria-hidden="true"></span>
-                }
-            }
-
-            <div>
-                Current rating:
-                <span data-id="@clinic.Id" data-value="ratingValue">@clinic.RatingCount</span>
-            </div>
-        </div>
+        Rating: @clinic.RatingCount
     </div>
     <div>
-        Name: @clinic.Name
+        City: @clinic.CityName
     </div>
     <div>
-        Name: @clinic.CityName
-    </div>
-    <div>
-        Owner: @clinic.OwnerName
-    </div>
-    <div>
-        Information: @clinic.Information
-    </div>
-    <div>
-        Pets: @clinic.PetsCount
+        Pets in this clinic: @clinic.PetsCount
     </div>
     <hr />
 }
-
-<style>
-    span.glyphicon.glyphicon-star-empty, span.glyphicon.glyphicon-star {
-        cursor: pointer;
-    }
-</style>
-
-@section scripts {
-    @Scripts.Render("~/bundles/rate")
-}
-

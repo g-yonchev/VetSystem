@@ -7,5 +7,7 @@
     public interface IClinicsService
     {
         IQueryable<Clinic> GetAll();
+
+        IQueryable<Clinic> GetById(int id);
     }
 }

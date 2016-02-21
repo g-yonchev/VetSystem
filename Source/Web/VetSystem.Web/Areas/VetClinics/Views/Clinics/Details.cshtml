@@ -1,0 +1,45 @@
+﻿@model VetSystem.Web.Areas.VetClinics.ViewModels.ClinicDetailsViewModel
+
+
+<h1>
+    Name: @Model.Name
+</h1>
+
+<div>
+    <h3> Rating:</h3>
+    
+</div>
+
+<div>
+    Information: @Model.Information
+</div>
+<div>
+    <div>
+        Current rating: <span data-id="@Model.Id" data-value="ratingValue">@Model.RatingCount</span>
+    </div>
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            <span class="glyphicon glyphicon-star-empty" data-id="@Model.Id" data-value="@i" aria-hidden="true"></span>
+        }
+    }
+</div>
+<div>
+    City: @Model.CityName
+</div>
+<div>
+    Pets in this clinic: @Model.PetsCount
+</div>
+<hr />
+
+<style>
+    span.glyphicon.glyphicon-star-empty, span.glyphicon.glyphicon-star {
+        cursor: pointer;
+    }
+</style>
+
+@section scripts {
+    @Scripts.Render("~/bundles/rate")
+}
+
