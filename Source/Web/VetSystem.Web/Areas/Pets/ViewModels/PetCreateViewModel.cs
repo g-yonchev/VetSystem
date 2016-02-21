@@ -7,10 +7,11 @@ using AutoMapper;
 using VetSystem.Common.Constants;
 using VetSystem.Data.Models;
 using VetSystem.Web.Infrastructure.Mapping;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VetSystem.Web.Areas.Pets.ViewModels
 {
-    public class PetCreateViewModel : IMapFrom<Pet>, IHaveCustomMappings
+    public class PetCreateViewModel : IMapFrom<Pet>
     {
         public int Id { get; set; }
 
@@ -24,16 +25,14 @@ namespace VetSystem.Web.Areas.Pets.ViewModels
         public int Age { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.MinPetSpeciesNameLength)]
-        [MaxLength(ValidationConstants.MaxPetSpeciesNameLength)]
-        public string Species { get; set; }
+        [Display(Name = "What is your pet?")]
+        public int SpeciesId { get; set; }
 
         public PetGender Gender { get; set; }
 
-        public void CreateMappings(IMapperConfiguration configuration)
-        {
-            configuration.CreateMap<Pet, PetCreateViewModel>()
-                .ForMember(x => x.Species, opts => opts.MapFrom(x => x.Species.Name));
-        }
+        public string Picture { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase File { get; set; }
     }
 }

@@ -14,6 +14,10 @@
         
 		public string ClinicName { get; set; }
 
+        public int Age { get; set; }
+
+        public string Picture { get; set; }
+
 		public void CreateMappings(IMapperConfiguration configuration)
 		{
             configuration.CreateMap<Pet, PetViewModel>()

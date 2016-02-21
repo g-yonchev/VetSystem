@@ -28,14 +28,6 @@
 			}
 		}
 
-		protected bool IsAuthenticatedUser
-		{
-			get
-			{
-				return this.HttpContext.User.Identity.IsAuthenticated;
-			}
-		}
-
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {
             if (requestContext.HttpContext.User.Identity.IsAuthenticated)

@@ -1,7 +1,7 @@
 ﻿namespace VetSystem.Data.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using VetSystem.Common.Constants;
     using VetSystem.Data.Common.Models;
 
@@ -29,11 +29,10 @@
 
 		public virtual User Owner { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ClinicId { get; set; }
+        public int? ClinicId { get; set; }
+        
+        public virtual Clinic Clinic { get; set; }
 
-		public virtual Clinic Clinic { get; set; }
-
-        public virtual Image Image { get; set; }
+        public string Picture { get; set; }
     }
 }

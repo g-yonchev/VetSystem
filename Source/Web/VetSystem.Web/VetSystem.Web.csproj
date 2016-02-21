@@ -241,8 +241,10 @@
     <Compile Include="Areas\Admin\ViewModels\UserViewModel.cs" />
     <Compile Include="Areas\ClinicOwner\ClinicOwnerAreaRegistration.cs" />
     <Compile Include="Areas\ClinicOwner\Controllers\SchedulerController.cs" />
+    <Compile Include="Areas\Pets\Controllers\BaseController.cs" />
     <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
     <Compile Include="Areas\Pets\ViewModels\PetCreateViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\SpeciesViewModel.cs" />
     <Compile Include="Areas\VetClinics\Controllers\ClinicsController.cs" />
     <Compile Include="Areas\VetClinics\VetClinicsAreaRegistration.cs" />
     <Compile Include="Areas\VetClinics\ViewModels\ClinicViewModel.cs" />

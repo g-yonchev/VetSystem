@@ -5,14 +5,12 @@ using System.Web;
 using VetSystem.Data.Models;
 using VetSystem.Web.Infrastructure.Mapping;
 
-namespace VetSystem.Web.ViewModels.Users
+namespace VetSystem.Web.Areas.Pets.ViewModels
 {
-    public class PetForMenuViewModel : IMapFrom<Pet>
+    public class SpeciesViewModel : IMapFrom<PetSpecies>
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public string Picture { get; set; }
     }
 }

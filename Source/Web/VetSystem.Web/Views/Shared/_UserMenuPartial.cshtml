@@ -6,12 +6,15 @@
     </a>
     <ul class="dropdown-menu">
 
-        @if (this.ViewBag.PetsMenu.Count != 0)
+        @if (this.ViewBag.PetsMenu != null && this.ViewBag.PetsMenu.Count != 0)
         {
             foreach (PetForMenuViewModel pet in this.ViewBag.PetsMenu)
             {
                 <li>
-                   @Html.ActionLink(pet.Name, "Details", "Pets", null, null, null, new { area = "Pets", id = pet.Id }, null)
+                    <a href="@string.Format("/Pets/Pets/Details/{0}", pet.Id)">
+                        <img src="@Html.DisplayFor(model => pet.Picture)" width="40" style="display: inline" />
+                        @pet.Name
+                    </a>
                 </li>
             }
             <li class="divider"></li>

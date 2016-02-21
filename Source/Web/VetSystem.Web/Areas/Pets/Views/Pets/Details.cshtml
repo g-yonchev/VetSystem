@@ -1,6 +1,7 @@
 ﻿@model VetSystem.Web.Areas.Pets.ViewModels.PetViewModel
 
-<h2>Details Pet</h2>
-
 <h3>@Model.Name</h3>
-<h3>@Model.ClinicName</h3>
+<h3>@Model.Age</h3>
+<div>
+    <img src=@Html.DisplayFor(model => model.Picture) alt=@Html.DisplayFor(model => model.Name) class="img-responsive" />
+</div>

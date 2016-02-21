@@ -12,10 +12,10 @@
 
 		IQueryable<Pet> Get(int count);
 
-		Pet GetById(int id);
+        IQueryable<Pet> GetById(int id);
 
 		IQueryable<Pet> GetByName(string name);
 
-		Pet Create(string name, int age, string ownerId, PetGender gender, string species);
+		Pet Create(string name, int age, string ownerId, PetGender gender, int speciesId, string picture = null);
 	}
 }
