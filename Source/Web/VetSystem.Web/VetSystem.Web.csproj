@@ -376,6 +376,7 @@
     <Content Include="Areas\VetClinics\Views\Clinics\Index.cshtml" />
     <Content Include="Areas\Pets\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Pets\Views\Pets\Create.cshtml" />
+    <Content Include="Areas\Pets\Views\Pets\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\rating.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

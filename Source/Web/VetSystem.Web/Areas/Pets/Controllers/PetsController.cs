@@ -9,7 +9,8 @@
     using VetSystem.Web.Areas.Pets.ViewModels;
     using VetSystem.Web.Controllers;
     using VetSystem.Web.Infrastructure.Mapping;
-
+    using Data.Models;
+    using System.Collections.Generic;
     public class PetsController : BaseController
     {
 		private IPetsService pets;
@@ -60,7 +61,16 @@
         [HttpGet]
         public ActionResult Details(int id)
         {
-            return this.View();
+            var pet = this.pets.GetById(id);
+
+            var viewModel = new PetViewModel
+            {
+                Id = pet.Id,
+                Name = pet.Name,
+                ClinicName = pet.Clinic.Name
+            };
+            
+            return this.View(viewModel);
         }
     }
 }

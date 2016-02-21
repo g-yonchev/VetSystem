@@ -28,7 +28,9 @@
                     {
                         @Html.Partial("_UserMenuPartial");
                     }
-
+                    <li>
+                        @Html.ActionLink("Clinics", "Index", "Clinics", new { area = "VetClinics" }, null)
+                    </li>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("ClinicOwner"))
                     {
                         @Html.Partial("_ClinicOwnerMenuPartial")

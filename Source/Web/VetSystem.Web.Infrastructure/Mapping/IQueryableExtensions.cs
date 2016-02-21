@@ -12,5 +12,10 @@
         {
             return source.ProjectTo(AutoMapperConfig.Configuration, membersToExpand);
         }
+
+        public static TDestination ProjectTo<TDestination>(this IQueryable source, params Expression<Func<TDestination, object>>[] membersToExpand)
+        {
+            return source.ProjectTo(AutoMapperConfig.Configuration, membersToExpand).ToList()[0];
+        }
     }
 }
