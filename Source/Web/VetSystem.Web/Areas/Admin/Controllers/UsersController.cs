@@ -29,14 +29,14 @@
         {
             DataSourceResult result = this.users
                 .GetAll()
-                .To<UserViewModel>()
+                .To<UserAdminViewModel>()
                 .ToDataSourceResult(request);
 
             return this.Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserViewModel user)
+        public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserAdminViewModel user)
         {
             if (ModelState.IsValid && user != null)
             {
@@ -47,7 +47,7 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, UserViewModel user)
+        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, UserAdminViewModel user)
         {
             this.users.Delete(user.Id);
 

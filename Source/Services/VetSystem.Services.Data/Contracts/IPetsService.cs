@@ -21,5 +21,9 @@
 		Pet Create(string name, int age, string ownerId, PetGender gender, int speciesId, string picture = null);
 
         void AddToClinic(int petId, int clinicId);
+
+        void Delete(int id);
+
+        void Update(int id, string name, int age, int speciesId);
     }
 }

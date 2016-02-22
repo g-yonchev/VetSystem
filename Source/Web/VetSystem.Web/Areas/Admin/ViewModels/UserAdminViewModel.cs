@@ -9,7 +9,7 @@
     using VetSystem.Data.Models;
     using VetSystem.Web.Infrastructure.Mapping;
 
-    public class UserViewModel : IMapFrom<User>, IHaveCustomMappings
+    public class UserAdminViewModel : IMapFrom<User>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public string Id { get; set; }
@@ -26,7 +26,7 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<User, UserViewModel>()
+            configuration.CreateMap<User, UserAdminViewModel>()
                 .ForMember(x => x.PetsCount, opts => opts.MapFrom(x => x.Pets.Any() ? x.Pets.Count() : 0));
         }
     }

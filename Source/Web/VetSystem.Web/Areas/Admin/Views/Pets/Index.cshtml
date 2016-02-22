@@ -1,0 +1,42 @@
+﻿@using Kendo.Mvc.UI
+
+<h2>Pets</h2>
+@(Html.Kendo().Grid<VetSystem.Web.Areas.Admin.ViewModels.PetAdminViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id);
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.Age);
+          columns.Bound(c => c.Species).ClientTemplate("#=Species.Name#").EditorTemplateName("_SpeciesDropDown");
+          columns.Bound(c => c.Gender);
+          columns.Bound(c => c.ClinicName);
+          columns.Bound(c => c.OwnerName);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable(pageable => pageable.Refresh(true))
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Model(model => model.Field(p => p.Id).Editable(false))
+          .Model(model => model.Field(p => p.OwnerName).Editable(false))
+          .Model(model => model.Field(p => p.ClinicName).Editable(false))
+          .Model(model => model.Field(p => p.Gender).Editable(false))
+          .Read(read => read.Action("Read", "Pets"))
+          .Update(read => read.Action("Update", "Pets"))
+          .Destroy(destroy => destroy.Action("Destroy", "Pets"))
+      )
+      .HtmlAttributes(new { style = "height: 450px;" })
+)
+<script>
+    function onGridDataBound(e) {
+        $('#grid').appendTo(document.body);
+}
+</script>

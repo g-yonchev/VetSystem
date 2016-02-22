@@ -80,8 +80,34 @@
         public void AddToClinic(int petId, int clinicId)
         {
             var pet = this.pets.GetById(petId);
+
             pet.ClinicId = clinicId;
+
             this.pets.Save();
+        }
+
+        public void Delete(int id)
+        {
+            var pet = this.pets.GetById(id);
+
+            if (pet != null)
+            {
+                this.pets.Delete(pet);
+                this.pets.Save();
+            }
+        }
+
+        public void Update(int id, string name, int age, int speciesId)
+        {
+            var pet = this.pets.GetById(id);
+            if (pet != null)
+            {
+                pet.Name = name;
+                pet.Age = age;
+                pet.SpeciesId = speciesId;
+
+                this.pets.Save();
+            }
         }
     }
 }
