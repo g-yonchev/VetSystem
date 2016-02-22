@@ -4,11 +4,7 @@
 
 @foreach (var pet in Model)
 {
-	<h2>
-		Name: @pet.Name
-	</h2>
-	<h4>
-		@pet.Species
-	</h4>
     <hr />
+    @Html.DisplayFor(m => m.First().Name)
+	@Html.DisplayFor(m => m.First().Species)
 }

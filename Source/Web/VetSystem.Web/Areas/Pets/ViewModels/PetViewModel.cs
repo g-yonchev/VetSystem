@@ -1,23 +1,27 @@
 ﻿namespace VetSystem.Web.Areas.Pets.ViewModels
 {
     using AutoMapper;
-    using Common.Constants;
     using System.ComponentModel.DataAnnotations;
     using VetSystem.Data.Models;
     using VetSystem.Web.Infrastructure.Mapping;
-
+    
     public class PetViewModel : IMapFrom<Pet>, IHaveCustomMappings
 	{
 		public int Id { get; set; }
 
+        [UIHint("Name")]
         public string Name { get; set; }
         
-		public string ClinicName { get; set; }
+        [UIHint("Clinic")]
+        public string ClinicName { get; set; }
 
+        [UIHint("Species")]
         public string Species { get; set; }
 
+        [UIHint("Age")]
         public int Age { get; set; }
 
+        [UIHint("Picture")]
         public string Picture { get; set; }
 
 		public void CreateMappings(IMapperConfiguration configuration)

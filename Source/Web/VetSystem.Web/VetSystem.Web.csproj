@@ -389,6 +389,9 @@
     <Content Include="Areas\Admin\Views\UserCreate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Pets\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\_SpeciesDropDown.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\DisplayTemplates\Name.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\DisplayTemplates\Clinic.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\DisplayTemplates\Age.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\rating.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -447,7 +450,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ClinicOwner\ViewModels\" />
     <Folder Include="Areas\ClinicOwner\Views\Shared\" />
-    <Folder Include="Areas\Pets\Views\Shared\" />
     <Folder Include="Areas\VetClinics\Views\Shared\" />
     <Folder Include="ViewModels\Pets\" />
     <Folder Include="Views\Pets\" />
