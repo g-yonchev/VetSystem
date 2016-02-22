@@ -6,21 +6,24 @@
       {
           columns.Bound(c => c.UserName);
           columns.Bound(c => c.Email);
-          columns.Bound(c => c.CreatedOn);
           columns.Bound(c => c.PhoneNumber);
           columns.Bound(c => c.PetsCount);
-          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(130);
+          columns.Command(c => c.Edit()).Width(100);
+          columns.Command(c => c.Destroy()).Width(100);
       })
-      .ColumnResizeHandleWidth(500)
+      .Pageable(p => p.Refresh(true))
+      .Resizable(resize => resize.Columns(true))
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .ToolBar(toolbar =>
       {
           toolbar.Excel();
           toolbar.Pdf();
       })
-      .ColumnMenu()
-      .Editable(editable => editable.Mode(GridEditMode.PopUp))
-      .Pageable()
-      .Navigatable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
       .Sortable(sortable =>
       {
           sortable.SortMode(GridSortMode.SingleColumn);

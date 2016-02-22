@@ -27,19 +27,23 @@
 
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            DataSourceResult result = this.users.GetAll()
+            DataSourceResult result = this.users
+                .GetAll()
                 .To<UserViewModel>()
                 .ToDataSourceResult(request);
 
-            return this.Json(result);
+            return this.Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserViewModel user)
         {
-            this.users.Update(user.Id, user.UserName, user.Email, user.PhoneNumber);
+            if (ModelState.IsValid && user != null)
+            {
+                this.users.Update(user.Id, user.UserName, user.Email, user.PhoneNumber);
+            }
 
-            return this.Json(new[] { user }.ToDataSourceResult(request));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
