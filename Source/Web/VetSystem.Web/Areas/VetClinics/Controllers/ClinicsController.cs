@@ -27,7 +27,7 @@
             return this.View(clinics);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             var clinic = this.clinics
                 .GetById(id)

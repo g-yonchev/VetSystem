@@ -8,6 +8,6 @@
     {
         IQueryable<Clinic> GetAll();
 
-        IQueryable<Clinic> GetById(int id);
+        IQueryable<Clinic> GetById(string id);
     }
 }

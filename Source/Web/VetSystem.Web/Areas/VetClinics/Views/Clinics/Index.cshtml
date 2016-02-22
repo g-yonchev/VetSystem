@@ -3,7 +3,7 @@
 @foreach (var clinic in Model)
 {
     <h1>
-        <a href="@string.Format("/VetClinics/Clinics/Details/{0}", clinic.Id)">@clinic.Name</a>
+        <a href="@clinic.Url">@clinic.Name</a>
     </h1>
     <div>
         Rating: @clinic.RatingCount

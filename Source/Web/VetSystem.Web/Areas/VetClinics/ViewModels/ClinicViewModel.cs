@@ -6,12 +6,21 @@
 
     using VetSystem.Data.Models;
     using VetSystem.Web.Infrastructure.Mapping;
-
+    using Services.Web;
     public class ClinicViewModel : IMapFrom<Clinic>, IHaveCustomMappings
     {
         public int Id { get; set; }
-        
+
         public string Name { get; set; }
+
+        public string Url
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/VetClinics/Clinics/Details/{identifier.EncodeId(this.Id, this.Name)}";
+            }
+        }
 
         public int PetsCount { get; set; }
 

@@ -88,6 +88,10 @@
       <Project>{8c6e4f86-2e14-4166-ad86-f9dacdd8013d}</Project>
       <Name>VetSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VetSystem.Services.Web\VetSystem.Services.Web.csproj">
+      <Project>{a8608ee3-2035-4de6-b8e6-d49534af8221}</Project>
+      <Name>VetSystem.Services.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

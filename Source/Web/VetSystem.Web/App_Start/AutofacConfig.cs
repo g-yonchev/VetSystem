@@ -53,7 +53,11 @@
 				.As(typeof(IDbRepository<>))
 				.InstancePerRequest();
 
-			builder.Register(x => new HttpCacheService())
+            builder.Register(x => new IdentifierProvider())
+                .As<IIdentifierProvider>()
+                .InstancePerRequest();
+
+            builder.Register(x => new HttpCacheService())
 				.As<ICacheService>()
 				.InstancePerRequest();
 
