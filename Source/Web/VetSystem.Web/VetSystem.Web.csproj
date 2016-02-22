@@ -237,7 +237,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserCreateController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\UserCreateViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserViewModel.cs" />
     <Compile Include="Areas\ClinicOwner\ClinicOwnerAreaRegistration.cs" />
     <Compile Include="Areas\ClinicOwner\Controllers\SchedulerController.cs" />
@@ -382,6 +384,7 @@
     <Content Include="Areas\Pets\Views\Pets\Create.cshtml" />
     <Content Include="Areas\Pets\Views\Pets\Details.cshtml" />
     <Content Include="Areas\VetClinics\Views\Clinics\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\UserCreate\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\rating.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

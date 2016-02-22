@@ -9,7 +9,6 @@
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Areas.Pets.ViewModels;
     using VetSystem.Web.Infrastructure.Mapping;
-    using Data.Models;
     using VetClinics.ViewModels;
 
     public class PetsController : BaseController

@@ -9,13 +9,11 @@
         <li>
             @Html.ActionLink("Users", "Index", "Home", new { area = "Admin" }, null)
         </li>
-
         <li>
-            @Html.ActionLink("Add User", "Index", "Home", new { area = "Admin" }, null)
+            @Html.ActionLink("Pets", "Index", "Home", new { area = "Admin" }, null)
         </li>
-
         <li>
-            @Html.ActionLink("Add Clinic Owner", "Index", "Home", new { area = "Admin" }, null)
+            @Html.ActionLink("Add User/Clinic Owner", "Create", "UserCreate", new { area = "Admin" }, null)
         </li>
     </ul>
 </li>
