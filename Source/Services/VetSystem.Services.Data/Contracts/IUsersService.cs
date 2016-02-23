@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VetSystem.Data.Models;
-
-namespace VetSystem.Services.Data.Contracts
+﻿namespace VetSystem.Services.Data.Contracts
 {
+    using System.Linq;
+
+    using VetSystem.Data.Models;
+
     public interface IUsersService
     {
         IQueryable<User> GetAll();

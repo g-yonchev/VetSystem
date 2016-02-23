@@ -25,7 +25,7 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult GetSpecies()
@@ -56,7 +56,7 @@
                 this.pets.Update(pet.Id, pet.Name, pet.Age, pet.Species.Id);
             }
 
-            return Json(new[] { pet }.ToDataSourceResult(request, this.ModelState));
+            return this.Json(new[] { pet }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -64,7 +64,7 @@
         {
             this.pets.Delete(pet.Id);
 
-            return Json(new[] { pet }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { pet }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

@@ -6,23 +6,23 @@
     using VetSystem.Data.Common.Models;
 
     public class PetSpecies : BaseModel<int>
-	{
-		private ICollection<Pet> pets;
+    {
+        private ICollection<Pet> pets;
 
-		public PetSpecies()
-		{
-			this.pets = new HashSet<Pet>();
-		}
+        public PetSpecies()
+        {
+            this.pets = new HashSet<Pet>();
+        }
 
-		[Required]
-		[MinLength(ValidationConstants.MinPetSpeciesNameLength)]
-		[MaxLength(ValidationConstants.MaxPetSpeciesNameLength)]
-		public string Name { get; set; }
+        [Required]
+        [MinLength(ValidationConstants.MinPetSpeciesNameLength)]
+        [MaxLength(ValidationConstants.MaxPetSpeciesNameLength)]
+        public string Name { get; set; }
 
-		public ICollection<Pet> Pets
-		{
-			get { return this.pets; }
-			set { this.pets = value; }
-		}
-	}
+        public ICollection<Pet> Pets
+        {
+            get { return this.pets; }
+            set { this.pets = value; }
+        }
+    }
 }

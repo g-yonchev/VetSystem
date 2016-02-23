@@ -1,12 +1,14 @@
 ﻿namespace VetSystem.Web.Controllers
 {
-    using Infrastructure.Mapping;
-    using Services.Data.Contracts;
     using System.Linq;
     using System.Web.Mvc;
-    using ViewModels.Clinics;
+
+    using VetSystem.Services.Data.Contracts;
+    using VetSystem.Web.Infrastructure.Mapping;
+    using VetSystem.Web.ViewModels.Clinics;
+
     public class HomeController : BaseController
-	{
+    {
         private readonly IClinicsService clinics;
 
         public HomeController(IClinicsService clinics)

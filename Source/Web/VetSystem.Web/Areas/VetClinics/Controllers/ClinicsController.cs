@@ -11,7 +11,7 @@
 
     public class ClinicsController : BaseController
     {
-        const int ItemsPerPage = 3;
+        private const int ItemsPerPage = 3;
         private readonly IClinicsService clinics;
 
         public ClinicsController(IClinicsService clinics)
@@ -43,13 +43,6 @@
             };
 
             return this.View(viewModel);
-
-            //var clinics = this.clinics
-            //    .GetAll()
-            //    .To<ClinicViewModel>()
-            //    .ToList();
-
-            //return this.View(clinics);
         }
 
         public ActionResult Details(string id)

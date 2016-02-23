@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
-using Owin;
-using VetSystem.Web;
 
-[assembly: OwinStartupAttribute(typeof(Startup))]
+using Owin;
+
+[assembly: OwinStartupAttribute(typeof(VetSystem.Web.Startup))]
 
 namespace VetSystem.Web
 {

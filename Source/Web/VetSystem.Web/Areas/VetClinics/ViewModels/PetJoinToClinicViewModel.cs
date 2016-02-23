@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using VetSystem.Data.Models;
-using VetSystem.Web.Infrastructure.Mapping;
-
-namespace VetSystem.Web.Areas.VetClinics.ViewModels
+﻿namespace VetSystem.Web.Areas.VetClinics.ViewModels
 {
+    using VetSystem.Data.Models;
+    using VetSystem.Web.Infrastructure.Mapping;
+
     public class PetJoinToClinicViewModel : IMapFrom<Pet>
     {
         public int Id { get; set; }

@@ -10,7 +10,7 @@
         public int PetId { get; set; }
 
         public virtual Pet Pet { get; set; }
-        
+
         public byte[] Content { get; set; }
 
         public string OriginalName { get; set; }

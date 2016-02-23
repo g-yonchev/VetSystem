@@ -7,6 +7,7 @@
     using VetSystem.Data.Models;
     using VetSystem.Web.Infrastructure.Mapping;
     using Services.Web;
+
     public class ClinicViewModel : IMapFrom<Clinic>, IHaveCustomMappings
     {
         public int Id { get; set; }

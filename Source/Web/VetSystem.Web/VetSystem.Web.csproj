@@ -245,6 +245,7 @@
     <Compile Include="Areas\Admin\ViewModels\UserAdminViewModel.cs" />
     <Compile Include="Areas\ClinicOwner\ClinicOwnerAreaRegistration.cs" />
     <Compile Include="Areas\ClinicOwner\Controllers\SchedulerController.cs" />
+    <Compile Include="Areas\ClinicOwner\ViewModels\TaskViewModel.cs" />
     <Compile Include="Areas\Pets\Controllers\BaseController.cs" />
     <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
     <Compile Include="Areas\Pets\ViewModels\PetCreateViewModel.cs" />
@@ -262,11 +263,9 @@
     <Compile Include="Areas\Pets\Controllers\PetsController.cs" />
     <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Filters\ValidateRatingValueAttribute.cs" />
-    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\TaskViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
@@ -457,7 +456,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ClinicOwner\ViewModels\" />
     <Folder Include="Areas\ClinicOwner\Views\Shared\" />
     <Folder Include="Areas\VetClinics\Views\Shared\" />
     <Folder Include="ViewModels\Pets\" />
@@ -501,6 +499,11 @@
       <Project>{a2e0ff4a-920b-4d75-ab32-69355a7b25e3}</Project>
       <Name>VetSystem.Web.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,24 +1,23 @@
-﻿using System.Web.Mvc;
-
-namespace VetSystem.Web.Areas.ClinicOwner
+﻿namespace VetSystem.Web.Areas.ClinicOwner
 {
-    public class ClinicOwnerAreaRegistration : AreaRegistration 
+    using System.Web.Mvc;
+
+    public class ClinicOwnerAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "ClinicOwner";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "ClinicOwner_default",
                 "ClinicOwner/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional });
         }
     }
 }

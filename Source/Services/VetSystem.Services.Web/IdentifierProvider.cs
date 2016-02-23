@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace VetSystem.Services.Web
+﻿namespace VetSystem.Services.Web
 {
     public class IdentifierProvider : IIdentifierProvider
     {

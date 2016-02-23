@@ -38,7 +38,7 @@
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserAdminViewModel user)
         {
-            if (ModelState.IsValid && user != null)
+            if (this.ModelState.IsValid && user != null)
             {
                 this.users.Update(user.Id, user.UserName, user.Email, user.PhoneNumber);
             }

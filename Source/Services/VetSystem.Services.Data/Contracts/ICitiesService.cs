@@ -1,8 +1,9 @@
-﻿using System.Linq;
-using VetSystem.Data.Models;
-
-namespace VetSystem.Services.Data.Contracts
+﻿namespace VetSystem.Services.Data.Contracts
 {
+    using System.Linq;
+
+    using VetSystem.Data.Models;
+
     public interface ICitiesService
     {
         IQueryable<City> GetAll();

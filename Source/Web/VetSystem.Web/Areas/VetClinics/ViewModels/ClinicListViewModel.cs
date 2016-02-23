@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace VetSystem.Web.Areas.VetClinics.ViewModels
+﻿namespace VetSystem.Web.Areas.VetClinics.ViewModels
 {
+    using System.Collections.Generic;
+
     public class ClinicListViewModel
     {
         public int CurrentPage { get; set; }

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
-using VetSystem.Data.Models;
-using VetSystem.Web.Infrastructure.Mapping;
-
-namespace VetSystem.Web.Areas.VetClinics.ViewModels
+﻿namespace VetSystem.Web.Areas.VetClinics.ViewModels
 {
+    using System.Linq;
+
+    using AutoMapper;
+
+    using VetSystem.Data.Models;
+    using VetSystem.Web.Infrastructure.Mapping;
+
     public class ClinicDetailsViewModel : IMapFrom<Clinic>, IHaveCustomMappings
     {
         public int Id { get; set; }

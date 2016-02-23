@@ -1,11 +1,11 @@
 ﻿namespace VetSystem.Services.Web
 {
-	using System;
+    using System;
 
-	public interface ICacheService
-	{
-		T Get<T>(string itemName, Func<T> getDataFunc, int durationInSeconds);
+    public interface ICacheService
+    {
+        T Get<T>(string itemName, Func<T> getDataFunc, int durationInSeconds);
 
-		void Remove(string itemName);
-	}
+        void Remove(string itemName);
+    }
 }

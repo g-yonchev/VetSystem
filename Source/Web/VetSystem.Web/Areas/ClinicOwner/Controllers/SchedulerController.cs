@@ -10,6 +10,7 @@
     using Kendo.Mvc.UI;
 
     using VetSystem.Data;
+    using VetSystem.Web.Areas.ClinicOwner.ViewModels;
     using VetSystem.Web.Controllers;
 
     public class SchedulerController : BaseController
@@ -30,7 +31,7 @@
 
         public ActionResult Tasks_Read([DataSourceRequest] DataSourceRequest request)
         {
-            var data = db.Tasks.ToList()
+            var data = this.db.Tasks.ToList()
                         .Select(task => new TaskViewModel(task))
                         .AsQueryable();
 
@@ -39,54 +40,56 @@
 
         public virtual JsonResult Tasks_Create([DataSourceRequest] DataSourceRequest request, TaskViewModel task)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty( task.Title))
+                if (string.IsNullOrEmpty(task.Title))
                 {
-                     task.Title = "";
+                     task.Title = string.Empty;
                 }
 
                 var entity = task.ToEntity();
-                db.Tasks.Add(entity);
-                db.SaveChanges();
+                this.db.Tasks.Add(entity);
+                this.db.SaveChanges();
                 task.Id = entity.Id;
             }
 
-            return this.Json(new[] { task }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { task }.ToDataSourceResult(request, this.ModelState));
         }
+
         public virtual JsonResult Tasks_Update([DataSourceRequest] DataSourceRequest request, TaskViewModel task)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty( task.Title))
+                if (string.IsNullOrEmpty(task.Title))
                 {
-                     task.Title = "";
+                     task.Title = string.Empty;
                 }
 
                 var entity = task.ToEntity();
-                db.Tasks.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.db.Tasks.Attach(entity);
+                this.db.Entry(entity).State = EntityState.Modified;
+                this.db.SaveChanges();
             }
 
-            return this.Json(new[] { task }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { task }.ToDataSourceResult(request, this.ModelState));
         }
+
         public virtual JsonResult Tasks_Destroy([DataSourceRequest] DataSourceRequest request, TaskViewModel task)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = task.ToEntity();
-                db.Tasks.Attach(entity);
-                db.Tasks.Remove(entity);
-                db.SaveChanges();
+                this.db.Tasks.Attach(entity);
+                this.db.Tasks.Remove(entity);
+                this.db.SaveChanges();
             }
 
-            return this.Json(new[] { task }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { task }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

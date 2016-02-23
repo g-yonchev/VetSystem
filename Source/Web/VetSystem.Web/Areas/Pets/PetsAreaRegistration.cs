@@ -1,24 +1,23 @@
-﻿using System.Web.Mvc;
-
-namespace VetSystem.Web.Areas.Pets
+﻿namespace VetSystem.Web.Areas.Pets
 {
-    public class PetsAreaRegistration : AreaRegistration 
+    using System.Web.Mvc;
+
+    public class PetsAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Pets";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Pets_default",
                 "Pets/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional });
         }
     }
 }

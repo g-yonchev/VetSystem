@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using VetSystem.Common.Constants;
-using VetSystem.Data.Models;
-using VetSystem.Web.Infrastructure.Mapping;
-using VetSystem.Web.Areas.Pets.ViewModels;
-
-namespace VetSystem.Web.Areas.Admin.ViewModels
+﻿namespace VetSystem.Web.Areas.Admin.ViewModels
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
+    using AutoMapper;
+
+    using VetSystem.Common.Constants;
+    using VetSystem.Data.Models;
+    using VetSystem.Web.Infrastructure.Mapping;
+    using VetSystem.Web.Areas.Pets.ViewModels;
+
     public class PetAdminViewModel : IMapFrom<Pet>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]

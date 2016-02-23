@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VetSystem.Data.Common.Models;
-
-namespace VetSystem.Data.Models
+﻿namespace VetSystem.Data.Models
 {
+    using System.Collections.Generic;
+
+    using VetSystem.Data.Common.Models;
+
     public class City : BaseModel<int>
     {
         private ICollection<Clinic> clinics;

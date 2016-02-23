@@ -13,30 +13,30 @@
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser, IDeletableEntity, IAuditInfo
     {
-		private ICollection<Pet> pets;
-		private ICollection<Clinic> companies;
+        private ICollection<Pet> pets;
+        private ICollection<Clinic> companies;
         private ICollection<Rating> ratings;
 
         public User()
-		{
+        {
             this.CreatedOn = DateTime.UtcNow;
 
             this.pets = new HashSet<Pet>();
-			this.companies = new HashSet<Clinic>();
-			this.ratings = new HashSet<Rating>();
+            this.companies = new HashSet<Clinic>();
+            this.ratings = new HashSet<Rating>();
         }
 
         public virtual ICollection<Pet> Pets
-		{
-			get { return this.pets; }
-			set { this.pets = value; }
-		}
+        {
+            get { return this.pets; }
+            set { this.pets = value; }
+        }
 
-		public virtual ICollection<Clinic> Companies
-		{
-			get { return this.companies; }
-			set { this.companies = value; }
-		}
+        public virtual ICollection<Clinic> Companies
+        {
+            get { return this.companies; }
+            set { this.companies = value; }
+        }
 
         public virtual ICollection<Rating> Ratings
         {

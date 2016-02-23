@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using VetSystem.Data.Models;
-using VetSystem.Web.Infrastructure.Mapping;
-
-namespace VetSystem.Web.ViewModels.Users
+﻿namespace VetSystem.Web.ViewModels.Users
 {
+    using VetSystem.Data.Models;
+    using VetSystem.Web.Infrastructure.Mapping;
+
     public class PetForMenuViewModel : IMapFrom<Pet>
     {
         public int Id { get; set; }

@@ -16,9 +16,9 @@
         {
         }
 
-		public virtual IDbSet<Clinic> Clinics { get; set; }
+        public virtual IDbSet<Clinic> Clinics { get; set; }
 
-		public virtual IDbSet<Pet> Pets { get; set; }
+        public virtual IDbSet<Pet> Pets { get; set; }
 
         public virtual IDbSet<City> Cities { get; set; }
 
@@ -36,32 +36,31 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-			try
-			{
-				return base.SaveChanges();
-
-			}
-			catch (Exception ex)
-			{
-				var a = (ex as System.Data.Entity.Validation.DbEntityValidationException)
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                var a = (ex as System.Data.Entity.Validation.DbEntityValidationException)
   .EntityValidationErrors
   .ToList()[0]
   .ValidationErrors
   .ToList()[0];
-				throw;
-			}
+                throw;
+            }
         }
 
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<User>().HasMany(u => u.Pets).WithRequired(p => p.Owner).WillCascadeOnDelete(true);
-			modelBuilder.Entity<User>().HasMany(u => u.Companies).WithRequired(c => c.Owner).WillCascadeOnDelete(true);
-			modelBuilder.Entity<Clinic>().HasMany(c => c.Pets).WithOptional(p => p.Clinic).WillCascadeOnDelete(false);
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasMany(u => u.Pets).WithRequired(p => p.Owner).WillCascadeOnDelete(true);
+            modelBuilder.Entity<User>().HasMany(u => u.Companies).WithRequired(c => c.Owner).WillCascadeOnDelete(true);
+            modelBuilder.Entity<Clinic>().HasMany(c => c.Pets).WithOptional(p => p.Clinic).WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
-		}
+        }
 
-		private void ApplyAuditInfoRules()
+        private void ApplyAuditInfoRules()
         {
             // Approach via @julielerman: http://bit.ly/123661P
             foreach (var entry in

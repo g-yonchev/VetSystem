@@ -1,6 +1,5 @@
 ﻿namespace VetSystem.Services.Data
 {
-    using System;
     using System.Linq;
 
     using VetSystem.Data.Common.Repositories;
@@ -42,7 +41,6 @@
                 .All()
                 .Where(x => x.ClinicId == clinicId)
                 .Average(x => x.Value);
-
 
             return clinicRating;
         }

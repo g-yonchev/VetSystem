@@ -15,18 +15,18 @@
     using VetSystem.Web.ViewModels.Users;
 
     public abstract class BaseController : Controller
-	{
+    {
         public IUsersService Users { get; set; }
 
-		public ICacheService Cache { get; set; }
+        public ICacheService Cache { get; set; }
 
-		protected IMapper Mapper
-		{
-			get
-			{
-				return AutoMapperConfig.Configuration.CreateMapper();
-			}
-		}
+        protected IMapper Mapper
+        {
+            get
+            {
+                return AutoMapperConfig.Configuration.CreateMapper();
+            }
+        }
 
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {
@@ -34,7 +34,7 @@
             {
                 var id = requestContext.HttpContext.User.Identity.GetUserId();
                 var user = this.Users.GetById(id);
-                
+
                 var pets = user.Pets.AsQueryable().To<PetForMenuViewModel>().ToList();
 
                 this.ViewBag.PetsMenu = pets;

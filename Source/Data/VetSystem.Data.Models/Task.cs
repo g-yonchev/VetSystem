@@ -1,8 +1,9 @@
-﻿using System;
-using VetSystem.Data.Common.Models;
-
-namespace VetSystem.Data.Models
+﻿namespace VetSystem.Data.Models
 {
+    using System;
+
+    using VetSystem.Data.Common.Models;
+
     public class Task : BaseModel<int>
     {
         public string Title { get; set; }
@@ -11,7 +12,7 @@ namespace VetSystem.Data.Models
 
         public DateTime End { get; set; }
 
-        public string StartTimezone{ get; set; }
+        public string StartTimezone { get; set; }
 
         public string EndTimezone { get; set; }
 

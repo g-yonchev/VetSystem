@@ -72,7 +72,7 @@
                 }
 
                 string filename = Path.GetFileName(model.File.FileName);
-                string folderPath = Server.MapPath("~/Content/Images/" + this.CurrentUser.Id);
+                string folderPath = this.Server.MapPath("~/Content/Images/" + this.CurrentUser.Id);
                 string imagePath = folderPath + "/" + filename;
                 imageUrl = "/Content/Images/" + this.CurrentUser.Id + "/" + filename;
 

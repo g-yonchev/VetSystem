@@ -1,8 +1,8 @@
 ﻿namespace VetSystem.Web
 {
-	using System.Web.Mvc;
+    using System.Web.Mvc;
 
-	public class ViewEnginesConfig
+    public class ViewEnginesConfig
     {
         public static void RegisterViewEngines(ViewEngineCollection viewEngineCollection)
         {

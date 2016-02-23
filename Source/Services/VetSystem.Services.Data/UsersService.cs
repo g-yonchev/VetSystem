@@ -29,7 +29,7 @@
                 PasswordHash = new PasswordHasher().HashPassword(password),
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            
+
             this.users.Add(user);
             this.users.Save();
 
@@ -55,7 +55,7 @@
             };
 
             this.users.Add(user);
-			user.Roles.Add(role);
+            user.Roles.Add(role);
             db.Dispose();
             this.users.Save();
 

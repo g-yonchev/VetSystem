@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using VetSystem.Data.Common.Repositories;
-using VetSystem.Data.Models;
-using VetSystem.Services.Data.Contracts;
-using VetSystem.Web.Areas.Admin.ViewModels;
-using VetSystem.Web.Controllers;
-
-namespace VetSystem.Web.Areas.Admin.Controllers
+﻿namespace VetSystem.Web.Areas.Admin.Controllers
 {
+    using System.Web.Mvc;
+
+    using VetSystem.Services.Data.Contracts;
+    using VetSystem.Web.Areas.Admin.ViewModels;
+    using VetSystem.Web.Controllers;
+
     public class UserCreateController : BaseController
     {
         private readonly IUsersService users;

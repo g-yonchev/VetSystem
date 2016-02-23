@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using AutoMapper;
-using VetSystem.Common.Constants;
-using VetSystem.Data.Models;
-using VetSystem.Web.Infrastructure.Mapping;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace VetSystem.Web.Areas.Pets.ViewModels
+﻿namespace VetSystem.Web.Areas.Pets.ViewModels
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+
+    using VetSystem.Common.Constants;
+    using VetSystem.Data.Models;
+    using VetSystem.Web.Infrastructure.Mapping;
+
     public class PetCreateViewModel : IMapFrom<Pet>
     {
         public int Id { get; set; }
