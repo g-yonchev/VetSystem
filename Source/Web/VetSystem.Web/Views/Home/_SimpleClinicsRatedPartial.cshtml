@@ -1,0 +1,24 @@
+﻿@model IEnumerable<VetSystem.Web.ViewModels.Clinics.ClinicSimpleRatedViewModel>
+
+<div class="panel-body">
+    <table class="table table-bordered">
+        <tr>
+            <th class="text-center"><small>Name</small></th>
+            <th class="text-center"><small>Rating</small></th>
+            <th class="text-center"><small>Details page</small></th>
+        </tr>
+        @foreach (var clinic in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @clinic.Name
+                </td>
+                <td class="text-center">
+                    <span class="glyphicon glyphicon-star"></span>
+                    @clinic.Rating
+                </td>
+                <td class="text-center"><a href=@Url.Action("Details", "Clinics", new { Id = clinic.Id, area = "VetClinics" })>Visit clinic</a></td>
+            </tr>
+        }
+    </table>
+</div>

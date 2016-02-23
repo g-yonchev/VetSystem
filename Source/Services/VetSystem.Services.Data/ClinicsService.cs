@@ -1,5 +1,6 @@
 ﻿namespace VetSystem.Services.Data
 {
+    using System;
     using System.Linq;
 
     using VetSystem.Data.Common.Repositories;
@@ -30,6 +31,22 @@
         {
             var intId = this.identifierProvider.DecodeId(id);
             return this.clinics.All().Where(x => x.Id == intId);
+        }
+
+        public IQueryable<Clinic> MostRated(int count)
+        {
+            return this.clinics.All()
+                .OrderByDescending(c => c.Ratings.Average(x => x.Value))
+                .ThenBy(c => c.Name)
+                .Take(count);
+        }
+
+        public IQueryable<Clinic> TopPetsCount(int count)
+        {
+            return this.clinics.All()
+                .OrderByDescending(c => c.Pets.Count())
+                .ThenBy(c => c.Name)
+                .Take(count);
         }
     }
 }

@@ -9,5 +9,9 @@
         IQueryable<Clinic> GetAll();
 
         IQueryable<Clinic> GetById(string id);
+
+        IQueryable<Clinic> MostRated(int count);
+
+        IQueryable<Clinic> TopPetsCount(int count);
     }
 }
