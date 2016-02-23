@@ -453,6 +453,7 @@
     <Content Include="Views\Shared\_AdminMenuPartial.cshtml" />
     <Content Include="Views\Home\_SimpleClinicsRatedPartial.cshtml" />
     <Content Include="Views\Home\_SimpleClinicsPetsPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Double.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

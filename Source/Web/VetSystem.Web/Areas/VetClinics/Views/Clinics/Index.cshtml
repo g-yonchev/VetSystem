@@ -3,16 +3,16 @@
 @foreach (var clinic in Model.Clinics)
 {
     <h1>
-        <a href="@clinic.Url">@clinic.Name</a>
+        <a href="@clinic.Url">@Html.DisplayFor(x => clinic.Name)</a>
     </h1>
     <div>
-        Rating: @clinic.RatingCount
+        Rating: @Html.DisplayFor(x => clinic.RatingCount)
     </div>
     <div>
-        City: @clinic.CityName
+        City: @Html.DisplayFor(x => clinic.CityName)
     </div>
     <div>
-        Pets in this clinic: @clinic.PetsCount
+        Pets in this clinic: @Html.DisplayFor(x => clinic.PetsCount)
     </div>
     <hr />
 }
@@ -27,7 +27,7 @@
                 </a>
             </li>
         }
-        @for (int i = 1; i < Model.TotalPages; i++)
+        @for (int i = 1; i <= Model.TotalPages; i++)
         {
             var className = string.Empty;
             if (Model.CurrentPage == i)

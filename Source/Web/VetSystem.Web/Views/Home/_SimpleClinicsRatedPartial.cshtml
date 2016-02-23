@@ -11,11 +11,11 @@
         {
             <tr>
                 <td class="text-center">
-                    @clinic.Name
+                    @Html.DisplayFor(x => clinic.Name)
                 </td>
                 <td class="text-center">
                     <span class="glyphicon glyphicon-star"></span>
-                    @clinic.Rating
+                    @Html.DisplayFor(x => clinic.Rating)
                 </td>
                 <td class="text-center"><a href=@Url.Action("Details", "Clinics", new { Id = clinic.Id, area = "VetClinics" })>Visit clinic</a></td>
             </tr>
