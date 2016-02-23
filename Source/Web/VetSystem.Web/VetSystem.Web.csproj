@@ -252,6 +252,7 @@
     <Compile Include="Areas\VetClinics\Controllers\ClinicsController.cs" />
     <Compile Include="Areas\VetClinics\VetClinicsAreaRegistration.cs" />
     <Compile Include="Areas\VetClinics\ViewModels\ClinicDetailsViewModel.cs" />
+    <Compile Include="Areas\VetClinics\ViewModels\ClinicListViewModel.cs" />
     <Compile Include="Areas\VetClinics\ViewModels\ClinicViewModel.cs" />
     <Compile Include="Areas\VetClinics\ViewModels\PetJoinToClinicViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />

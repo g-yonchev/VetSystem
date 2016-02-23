@@ -1,5 +1,6 @@
 ﻿namespace VetSystem.Web.Areas.VetClinics.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -10,6 +11,7 @@
 
     public class ClinicsController : BaseController
     {
+        const int ItemsPerPage = 3;
         private readonly IClinicsService clinics;
 
         public ClinicsController(IClinicsService clinics)
@@ -17,14 +19,37 @@
             this.clinics = clinics;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int id = 1)
         {
-            var clinics = this.clinics
-                .GetAll()
+            ClinicListViewModel viewModel;
+
+            var page = id;
+            var allItemsCount = this.clinics.GetAll().Count();
+            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
+            var itemsToSkip = (page - 1) * ItemsPerPage;
+            var clinics = this.clinics.GetAll()
+                .OrderBy(x => x.CreatedOn)
+                .ThenBy(x => x.Id)
+                .Skip(itemsToSkip)
+                .Take(ItemsPerPage)
                 .To<ClinicViewModel>()
                 .ToList();
 
-            return this.View(clinics);
+            viewModel = new ClinicListViewModel()
+            {
+                CurrentPage = page,
+                TotalPages = totalPages,
+                Clinics = clinics
+            };
+
+            return this.View(viewModel);
+
+            //var clinics = this.clinics
+            //    .GetAll()
+            //    .To<ClinicViewModel>()
+            //    .ToList();
+
+            //return this.View(clinics);
         }
 
         public ActionResult Details(string id)

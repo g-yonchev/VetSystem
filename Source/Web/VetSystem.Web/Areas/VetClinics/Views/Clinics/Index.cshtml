@@ -1,6 +1,6 @@
-﻿@model ICollection<VetSystem.Web.Areas.VetClinics.ViewModels.ClinicViewModel>
+﻿@model VetSystem.Web.Areas.VetClinics.ViewModels.ClinicListViewModel
 
-@foreach (var clinic in Model)
+@foreach (var clinic in Model.Clinics)
 {
     <h1>
         <a href="@clinic.Url">@clinic.Name</a>
@@ -16,3 +16,34 @@
     </div>
     <hr />
 }
+
+<nav>
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+        {
+            <li>
+                <a href="/VetClinics/Clinics/Index/@(Model.CurrentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+        @for (int i = 1; i < Model.TotalPages; i++)
+        {
+            var className = string.Empty;
+            if (Model.CurrentPage == i)
+            {
+                className = "active";
+            }
+            <li class="@className"><a href="/VetClinics/Clinics/Index/@i">@i</a></li>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li>
+                <a href="/VetClinics/Clinics/Index/@(Model.CurrentPage + 1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
