@@ -42,10 +42,9 @@
 
         public Pet Create(string name, int age, string ownerId, PetGender gender, int speciesId, string picture = null)
         {
-            if (picture == null)
+            if (picture == string.Empty)
             {
-                // TODO: get default picture
-                picture = "default picture";
+                picture = "http://s.hswstatic.com/gif/animal-stereotype-orig.jpg";
             }
 
             var pet = new Pet

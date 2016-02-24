@@ -13,7 +13,7 @@
       })
       .Pageable(p => p.Refresh(true))
       .Resizable(resize => resize.Columns(true))
-      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
       .ToolBar(toolbar =>
       {
           toolbar.Excel();
@@ -33,6 +33,7 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
+          .Model(model => model.Field(p => p.PetsCount).Editable(false))
           .Read(read => read.Action("Read", "Users"))
           .Update(update => update.Action("Update", "Users"))
           .Destroy(destroy => destroy.Action("Destroy", "Users"))

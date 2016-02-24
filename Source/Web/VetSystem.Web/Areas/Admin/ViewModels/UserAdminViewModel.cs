@@ -1,6 +1,5 @@
 ﻿namespace VetSystem.Web.Areas.Admin.ViewModels
 {
-    using System;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -21,8 +20,6 @@
         public string PhoneNumber { get; set; }
 
         public int PetsCount { get; set; }
-
-        public string Role { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
