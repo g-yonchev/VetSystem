@@ -2,10 +2,12 @@
 {
     using System.Web.Mvc;
 
+    using VetSystem.Common.Constants;
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Areas.Admin.ViewModels;
     using VetSystem.Web.Controllers;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class UserCreateController : BaseController
     {
         private readonly IUsersService users;

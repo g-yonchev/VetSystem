@@ -37,6 +37,12 @@
         public T GetById(object id)
         {
             var item = this.DbSet.Find(id);
+
+            if (item == null)
+            {
+                return null;
+            }
+
             if (item.IsDeleted)
             {
                 return null;

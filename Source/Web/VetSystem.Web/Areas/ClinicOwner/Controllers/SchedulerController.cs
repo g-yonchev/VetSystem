@@ -9,10 +9,12 @@
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 
+    using VetSystem.Common.Constants;
     using VetSystem.Data;
     using VetSystem.Web.Areas.ClinicOwner.ViewModels;
     using VetSystem.Web.Controllers;
 
+    [Authorize(Roles = GlobalConstants.ClinicOwnerRoleName)]
     public class SchedulerController : BaseController
     {
         private VetSystemDbContext db = new VetSystemDbContext();

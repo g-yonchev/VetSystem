@@ -11,6 +11,7 @@
     using VetSystem.Web.Infrastructure.Mapping;
     using VetClinics.ViewModels;
 
+    [Authorize]
     public class PetsController : BaseController
     {
         private readonly IPetsService pets;

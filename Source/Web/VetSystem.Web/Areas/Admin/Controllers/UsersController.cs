@@ -6,11 +6,13 @@
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 
+    using VetSystem.Common.Constants;
     using VetSystem.Services.Data.Contracts;
     using VetSystem.Web.Areas.Admin.ViewModels;
     using VetSystem.Web.Controllers;
     using VetSystem.Web.Infrastructure.Mapping;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class UsersController : BaseController
     {
         private IUsersService users;
