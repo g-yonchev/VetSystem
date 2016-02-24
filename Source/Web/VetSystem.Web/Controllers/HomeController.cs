@@ -9,6 +9,9 @@
 
     public class HomeController : BaseController
     {
+        private const int TimeForCache = 60 * 60;
+        private const int NumberOfTopClinics = 5;
+
         private readonly IClinicsService clinics;
 
         public HomeController(IClinicsService clinics)
@@ -29,10 +32,10 @@
                 this.Cache.Get(
                     "ClinicsRated",
                     () => this.clinics
-                        .MostRated(5)
+                        .MostRated(NumberOfTopClinics)
                         .To<ClinicSimpleRatedViewModel>()
                         .ToList(),
-                        60 * 60);
+                        TimeForCache);
 
             return this.PartialView("_SimpleClinicsRatedPartial", clinics);
         }
@@ -45,10 +48,10 @@
                 this.Cache.Get(
                     "ClinicsTopPetsCount",
                     () => this.clinics
-                        .TopPetsCount(5)
+                        .TopPetsCount(NumberOfTopClinics)
                         .To<ClinicSimpleToPetCountViewModel>()
                         .ToList(),
-                        60 * 60);
+                        TimeForCache);
 
             return this.PartialView("_SimpleClinicsPetsPartial", clinics);
         }
