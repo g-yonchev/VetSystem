@@ -9,7 +9,7 @@ Vet System
 
 This web applications is for two kind of users: Vet clinics, which has own clinic and pets in it, with schedule. And users as a clients, which can create pets and join them in some clinic, what they choose.
 
-##  Areas:
+##  Areas
 
 #### Public 
 
